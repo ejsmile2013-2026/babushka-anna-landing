@@ -43,7 +43,7 @@ export default async function handler(req, res) {
     if (!response.ok) {
       const err = await response.text();
       console.error('Anthropic error:', err);
-      return res.status(502).json({ error: 'API error' });
+      return res.status(502).json({ error: 'API error', detail: err });
     }
 
     const data = await response.json();
