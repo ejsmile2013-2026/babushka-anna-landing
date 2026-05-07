@@ -586,7 +586,7 @@ footer{background:#080f08;color:#6a9a7a;text-align:center;padding:36px 20px}
       document.getElementById('spinnerBlock').style.display = 'none';
       document.getElementById('responseText').textContent = text;
       document.getElementById('responseBlock').style.display = 'block';
-      document.getElementById('trustSection').style.display = 'block';
+      // trustSection always visible in new design
       document.getElementById('responseBlock').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 2500);
   }
@@ -614,7 +614,7 @@ footer{background:#080f08;color:#6a9a7a;text-align:center;padding:36px 20px}
     document.getElementById('responseBlock').style.display = 'none';
     document.getElementById('errorBlock').style.display = 'none';
     document.getElementById('spinnerBlock').style.display = 'none';
-    document.getElementById('trustSection').style.display = 'none';
+    // trustSection always visible in new design
     document.getElementById('quizSection').scrollIntoView({ behavior: 'smooth' });
   }
 </script>
