@@ -277,30 +277,34 @@ footer{background:#080f08;color:#6a9a7a;text-align:center;padding:36px 20px}
     <div class="trust-item">💬 Отвечаю лично в Telegram</div>
   </div>
   <div class="hero-btns">
-    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:flex-start;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:260px;">
         <a href="https://t.me/babushka_anna_heal_bot" target="_blank"
-           style="display:inline-flex;align-items:center;justify-content:center;gap:10px;
-                  min-width:230px;background:#C9963E;color:#fff;
+           style="display:flex;align-items:center;justify-content:center;gap:10px;
+                  width:100%;background:#C9963E;color:#fff;
                   padding:15px 24px;border-radius:40px;text-decoration:none;
                   font-weight:bold;font-size:0.92rem;text-align:center;
-                  box-shadow:0 4px 18px rgba(201,150,62,0.45);transition:all 0.2s;"
+                  box-shadow:0 4px 18px rgba(201,150,62,0.45);transition:all 0.2s;
+                  box-sizing:border-box;"
            onmouseover="this.style.background='#b8832a'"
            onmouseout="this.style.background='#C9963E'">
           🌿 <span>Задать 3 вопроса Бабушке<br><span style="font-size:0.76rem;font-weight:normal;opacity:0.88;">Бесплатно • ответ за 1 минуту</span></span>
         </a>
         <span style="font-size:0.72rem;color:rgba(255,255,255,0.6);text-align:center;line-height:1.4;">Бот даёт мягкие информационные советы и не заменяет врача.</span>
       </div>
-      <a href="https://babushka-anna.vercel.app" target="_blank"
-         style="display:inline-flex;align-items:center;justify-content:center;gap:10px;
-                min-width:230px;background:rgba(201,150,62,0.15);color:#fff;
-                border:2px solid #C9963E;
-                padding:15px 24px;border-radius:40px;text-decoration:none;
-                font-weight:bold;font-size:0.92rem;text-align:center;transition:all 0.2s;"
-         onmouseover="this.style.background='rgba(201,150,62,0.3)'"
-         onmouseout="this.style.background='rgba(201,150,62,0.15)'">
-        📖 <span>Открыть справочник<br><span style="font-size:0.76rem;font-weight:normal;opacity:0.88;">24 рецепта бесплатно</span></span>
-      </a>
+      <div style="width:260px;">
+        <a href="https://babushka-anna.vercel.app" target="_blank"
+           style="display:flex;align-items:center;justify-content:center;gap:10px;
+                  width:100%;background:rgba(201,150,62,0.15);color:#fff;
+                  border:2px solid #C9963E;
+                  padding:15px 24px;border-radius:40px;text-decoration:none;
+                  font-weight:bold;font-size:0.92rem;text-align:center;transition:all 0.2s;
+                  box-sizing:border-box;"
+           onmouseover="this.style.background='rgba(201,150,62,0.3)'"
+           onmouseout="this.style.background='rgba(201,150,62,0.15)'">
+          📖 <span>Открыть справочник<br><span style="font-size:0.76rem;font-weight:normal;opacity:0.88;">24 рецепта бесплатно</span></span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
