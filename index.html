@@ -278,16 +278,19 @@ footer{background:#080f08;color:#6a9a7a;text-align:center;padding:36px 20px}
   </div>
   <div class="hero-btns">
     <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
-      <a href="https://t.me/+u39XPrezFspmM2Ey" target="_blank"
-         style="display:inline-flex;align-items:center;justify-content:center;gap:10px;
-                min-width:230px;background:#C9963E;color:#fff;
-                padding:15px 24px;border-radius:40px;text-decoration:none;
-                font-weight:bold;font-size:0.92rem;text-align:center;
-                box-shadow:0 4px 18px rgba(201,150,62,0.45);transition:all 0.2s;"
-         onmouseover="this.style.background='#b8832a'"
-         onmouseout="this.style.background='#C9963E'">
-        ✈️ <span>Написать мне в Telegram<br><span style="font-size:0.76rem;font-weight:normal;opacity:0.88;">Задать вопрос бабушке Анне</span></span>
-      </a>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <a href="https://t.me/babushka_anna_heal_bot" target="_blank"
+           style="display:inline-flex;align-items:center;justify-content:center;gap:10px;
+                  min-width:230px;background:#C9963E;color:#fff;
+                  padding:15px 24px;border-radius:40px;text-decoration:none;
+                  font-weight:bold;font-size:0.92rem;text-align:center;
+                  box-shadow:0 4px 18px rgba(201,150,62,0.45);transition:all 0.2s;"
+           onmouseover="this.style.background='#b8832a'"
+           onmouseout="this.style.background='#C9963E'">
+          🌿 <span>Задать 3 вопроса Бабушке<br><span style="font-size:0.76rem;font-weight:normal;opacity:0.88;">Бесплатно • ответ за 1 минуту</span></span>
+        </a>
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.6);text-align:center;line-height:1.4;">Бот даёт мягкие информационные советы и не заменяет врача.</span>
+      </div>
       <a href="https://babushka-anna.vercel.app" target="_blank"
          style="display:inline-flex;align-items:center;justify-content:center;gap:10px;
                 min-width:230px;background:rgba(201,150,62,0.15);color:#fff;
@@ -325,6 +328,27 @@ footer{background:#080f08;color:#6a9a7a;text-align:center;padding:36px 20px}
       </div>
     </div>
   </section>
+
+  <!-- ── CTA БОТА ── -->
+  <div style="margin:8px 0 32px;padding:28px 24px;border-radius:20px;
+              background:linear-gradient(135deg,#f4f0e8,#eaf0ea);
+              text-align:center;max-width:640px;margin-left:auto;margin-right:auto;">
+    <p style="font-size:1.25rem;font-weight:700;color:#2D6A4F;margin:0 0 10px;">🌿 Не нашли свой симптом?</p>
+    <p style="font-size:0.95rem;color:#4a4a3a;margin:0 0 18px;line-height:1.6;">
+      Бабушка Анна теперь отвечает в Telegram.<br>
+      Можно бесплатно задать 3 вопроса и получить мягкий совет для вашего случая.
+    </p>
+    <a href="https://t.me/babushka_anna_heal_bot" target="_blank"
+       style="display:inline-block;background:#2D6A4F;color:#fff;
+              padding:13px 30px;border-radius:40px;text-decoration:none;
+              font-weight:bold;font-size:0.92rem;
+              box-shadow:0 3px 14px rgba(45,106,79,0.3);transition:all 0.2s;"
+       onmouseover="this.style.background='#1f4f39'"
+       onmouseout="this.style.background='#2D6A4F'">
+      Открыть Бабушку в Telegram
+    </a>
+    <p style="font-size:0.72rem;color:#888;margin:10px 0 0;">Бот даёт мягкие информационные советы и не заменяет врача.</p>
+  </div>
 
   <!-- ── СЧЁТЧИК ── -->
   <div style="text-align:center;margin:-16px 0 40px;">
@@ -417,7 +441,7 @@ footer{background:#080f08;color:#6a9a7a;text-align:center;padding:36px 20px}
         <div class="response-text" id="responseText"></div>
       </div>
       <div class="response-actions">
-        <a class="btn-tg-big" href="https://t.me/+u39XPrezFspmM2Ey" target="_blank">💬 Написать бабушке лично в Telegram</a>
+        <a class="btn-tg-big" href="https://t.me/babushka_anna_heal_bot" target="_blank">🌿 Задать 3 вопроса Бабушке</a>
         <button class="btn-copy" id="btnCopy" onclick="copyRecipe()">📋 Скопировать рецепт</button>
         <button class="btn-restart" onclick="restartQuiz()">Пройти диагностику ещё раз →</button>
       </div>
@@ -425,7 +449,7 @@ footer{background:#080f08;color:#6a9a7a;text-align:center;padding:36px 20px}
 
     <div class="error-block" id="errorBlock">
       <p>Что-то пошло не так. Напишите бабушке напрямую — она ответит лично!</p>
-      <a class="btn-tg-big" href="https://t.me/+u39XPrezFspmM2Ey" target="_blank">💬 Написать в Telegram</a>
+      <a class="btn-tg-big" href="https://t.me/babushka_anna_heal_bot" target="_blank">🌿 Задать 3 вопроса Бабушке</a>
     </div>
   </section>
 
@@ -479,7 +503,7 @@ footer{background:#080f08;color:#6a9a7a;text-align:center;padding:36px 20px}
 <!-- ── ФУТЕР ── -->
 <footer>
   <div class="footer-links">
-    <a href="https://t.me/+u39XPrezFspmM2Ey" target="_blank">✈️ Telegram</a>
+    <a href="https://t.me/babushka_anna_heal_bot" target="_blank">✈️ Telegram</a>
     <a href="https://www.instagram.com/aibabushka40/" target="_blank">📷 Instagram</a>
     <a href="https://babushka-anna.vercel.app" target="_blank">📖 Справочник рецептов</a>
   </div>
