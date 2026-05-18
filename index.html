@@ -8,9 +8,9 @@
 <style>
 /* ── ПЕРГАМЕНТНЫЙ СТИЛЬ — старая книга трав ── */
 :root {
-  --bg:       #e8d9b0;
-  --bg2:      #dece9e;
-  --bg3:      #f0e6c8;
+  --bg:       #f5edd5;
+  --bg2:      #faf4e4;
+  --bg3:      #fff8ec;
   --text:     #1a2e12;
   --muted:    #5a6e45;
   --accent:   #9b3a10;
@@ -46,7 +46,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(210,185,130,0.96);
+  background: rgba(245,237,213,0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 2px solid var(--parch-border);
@@ -152,8 +152,7 @@ header {
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  background: var(--bg);
-  background: #e8d9b0;
+  background: #f5edd5;
   z-index: 1;
 }
 .hero-photo {
@@ -163,7 +162,8 @@ header {
   height: 160px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 0 40px rgba(249,115,22,0.35);
+  box-shadow: 0 8px 32px rgba(60,30,10,0.45), 0 2px 8px rgba(60,30,10,0.3);
+  filter: contrast(1.05) saturate(1.1);
 }
 .hero-photo img {
   width: 100%;
