@@ -8,9 +8,9 @@
 <style>
 /* ── Переменные цветов ── */
 :root {
-  --bg:       #0a0a0a;
-  --bg2:      #111111;
-  --bg3:      #1a1a1a;
+  --bg:       #0a0c0a;
+  --bg2:      #0f120f;
+  --bg3:      #171d17;
   --text:     #f1f5f9;
   --muted:    #94a3b8;
   --accent:   #f97316;
@@ -18,6 +18,11 @@
   --glow:     rgba(249,115,22,0.15);
   --border:   rgba(255,255,255,0.08);
   --r:        14px;
+  --herb:        #3a7d44;
+  --herb-h:      #2d6235;
+  --herb-light:  rgba(58,125,68,0.12);
+  --herb-glow:   rgba(58,125,68,0.25);
+  --herb-border: rgba(58,125,68,0.4);
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
@@ -76,7 +81,47 @@ header {
 .hero {
   text-align: center;
   padding: 80px 20px 64px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(249,115,22,0.08) 0%, transparent 70%);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%,  rgba(249,115,22,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 80%,  rgba(58,125,68,0.08)  0%, transparent 50%),
+    radial-gradient(ellipse at 100% 80%,rgba(58,125,68,0.08)  0%, transparent 50%);
+}
+/* Туркменский орнамент — тонкий паттерн на фоне hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg,  rgba(58,125,68,0.04) 0px, rgba(58,125,68,0.04) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(-45deg, rgba(58,125,68,0.04) 0px, rgba(58,125,68,0.04) 1px, transparent 1px, transparent 20px);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero > * { position: relative; z-index: 1; }
+
+/* Плавающие травы */
+.herbs-float {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.hp {
+  position: absolute;
+  bottom: -40px;
+  font-size: 22px;
+  opacity: 0;
+  animation: floatUp var(--d,12s) var(--dl,0s) ease-in-out infinite;
+  user-select: none;
+}
+@keyframes floatUp {
+  0%   { transform: translateY(0)    rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.22; }
+  90%  { opacity: 0.22; }
+  100% { transform: translateY(-110vh) rotate(var(--r,180deg)); opacity: 0; }
 }
 .hero-photo-wrap {
   margin: 0 auto 28px;
@@ -240,9 +285,13 @@ header {
   min-height: 56px;
 }
 .quiz-opt:hover {
-  border-color: var(--accent);
-  background: var(--glow);
-  transform: translateX(4px);
+  border-color: var(--herb-border);
+  background: var(--herb-light);
+  transform: translateX(6px);
+  box-shadow: -3px 0 0 var(--herb);
+}
+.quiz-opt:active {
+  transform: translateX(3px) scale(0.99);
 }
 
 /* Загрузка */
@@ -428,6 +477,85 @@ footer a:hover { text-decoration: underline; }
   line-height: 1.6;
 }
 
+/* ── Botanical divider ── */
+.herb-divider {
+  text-align: center;
+  padding: 4px 0;
+  letter-spacing: 10px;
+  font-size: 18px;
+  opacity: 0.35;
+  user-select: none;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: 0.1s; }
+.reveal.d2 { transition-delay: 0.2s; }
+.reveal.d3 { transition-delay: 0.3s; }
+
+/* ── Карточки с растительным акцентом ── */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+.card::after {
+  content: '🌿';
+  position: absolute;
+  bottom: -8px;
+  right: 4px;
+  font-size: 52px;
+  opacity: 0.05;
+  transform: rotate(-20deg);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.card:hover {
+  border-color: var(--herb-border);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(58,125,68,0.15);
+  transition: all 0.3s ease;
+}
+.card:hover::after { opacity: 0.12; transform: rotate(-10deg) scale(1.1); }
+
+/* ── Trust items hover ── */
+.trust-item {
+  border-radius: var(--r);
+  border: 1px solid transparent;
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+  cursor: default;
+}
+.trust-item:hover {
+  background: var(--herb-light);
+  border-color: var(--herb-border);
+  transform: translateY(-5px);
+}
+.trust-icon { transition: transform 0.4s ease; }
+.trust-item:hover .trust-icon { transform: scale(1.25) rotate(12deg); }
+
+/* ── CTA section — зелёный фон с травами ── */
+.cta-section {
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(58,125,68,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(249,115,22,0.06) 0%, transparent 60%);
+}
+
+/* ── Прогресс-бар — зелёный ── */
+.progress-fill { background: linear-gradient(90deg, var(--herb), var(--accent)); }
+
+/* ── Grandma-says — зелёная полоска ── */
+.grandma-says { border-left-color: var(--herb); }
+
+/* ── Результат — тёплая рамка ── */
+.result-letter {
+  border-color: var(--herb-border);
+  background: linear-gradient(135deg, var(--bg3) 0%, rgba(58,125,68,0.05) 100%);
+}
+
 /* ── Утилиты ── */
 .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
 
@@ -463,6 +591,17 @@ footer a:hover { text-decoration: underline; }
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
+  <!-- Плавающие травки в фоне -->
+  <div class="herbs-float" aria-hidden="true">
+    <span class="hp" style="left:5%;  --d:14s;--dl:0s;  --r:160deg">🌿</span>
+    <span class="hp" style="left:15%; --d:11s;--dl:2s;  --r:200deg">🍃</span>
+    <span class="hp" style="left:28%; --d:16s;--dl:0.5s;--r:120deg">🌱</span>
+    <span class="hp" style="left:42%; --d:13s;--dl:4s;  --r:280deg">🌿</span>
+    <span class="hp" style="left:58%; --d:15s;--dl:1s;  --r:90deg" >🍃</span>
+    <span class="hp" style="left:70%; --d:12s;--dl:3s;  --r:320deg">🌿</span>
+    <span class="hp" style="left:82%; --d:17s;--dl:1.5s;--r:180deg">🌱</span>
+    <span class="hp" style="left:92%; --d:10s;--dl:5s;  --r:240deg">🍃</span>
+  </div>
   <div class="hero-photo-wrap">
     <div class="hero-photo">
       <img src="babushka.jpg" alt="Бабушка Анна">
@@ -478,6 +617,8 @@ footer a:hover { text-decoration: underline; }
     <span class="trust-badge" data-i18n="badge3">🕐 Ответ за 30 секунд</span>
   </div>
 </section>
+
+<div class="herb-divider">🌿 ✦ 🌿 ✦ 🌿</div>
 
 <!-- ═══ КВИЗ ═══ -->
 <section class="quiz-section" id="quiz">
@@ -560,13 +701,15 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
+<div class="herb-divider">🍃 ✦ 🌿 ✦ 🍃</div>
+
 <!-- ═══ ОТЗЫВЫ ═══ -->
 <section class="testimonials">
   <div class="container">
-    <h2 class="section-title" data-i18n="reviewsTitle">Что говорят люди</h2>
-    <p class="section-sub" data-i18n="reviewsSub">Реальные истории от тех, кому помогло</p>
+    <h2 class="section-title reveal" data-i18n="reviewsTitle">Что говорят люди</h2>
+    <p class="section-sub reveal d1" data-i18n="reviewsSub">Реальные истории от тех, кому помогло</p>
     <div class="cards-grid">
-      <div class="card">
+      <div class="card reveal d1">
         <p class="card-quote">Спина мучила три года. Врачи говорили — операция. Попробовала рецепт с чёрным тмином и чабрецом от Бабушки Анны. Через две недели боль ушла на 70%. Теперь всем рассказываю.</p>
         <div class="card-author">
           <div class="card-avatar">🌸</div>
@@ -577,7 +720,7 @@ footer a:hover { text-decoration: underline; }
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card reveal d2">
         <p class="card-quote">Бессонница замучила после выхода на пенсию. Валерьянка не помогала. Бабушка посоветовала мелиссу с мёдом и пустырник — уже через неделю сплю как в молодости. Спасибо от души!</p>
         <div class="card-author">
           <div class="card-avatar">🌺</div>
@@ -588,7 +731,7 @@ footer a:hover { text-decoration: underline; }
           </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card reveal d3">
         <p class="card-quote">Давление скакало, таблетки пила горстями. Попробовала рецепт с боярышником и гранатом. Давление стабилизировалось. Теперь советую всем подругам — они тоже в восторге.</p>
         <div class="card-author">
           <div class="card-avatar">🌷</div>
@@ -603,23 +746,25 @@ footer a:hover { text-decoration: underline; }
   </div>
 </section>
 
+<div class="herb-divider">🌱 ✦ 🍃 ✦ 🌱</div>
+
 <!-- ═══ ДОВЕРИЕ ═══ -->
 <section class="trust-section">
   <div class="container">
-    <h2 class="section-title" data-i18n="trustTitle">Почему люди доверяют бабушке Анне</h2>
-    <p class="section-sub" data-i18n="trustSub">Народная мудрость, проверенная поколениями</p>
+    <h2 class="section-title reveal" data-i18n="trustTitle">Почему люди доверяют бабушке Анне</h2>
+    <p class="section-sub reveal d1" data-i18n="trustSub">Народная мудрость, проверенная поколениями</p>
     <div class="trust-grid">
-      <div class="trust-item">
+      <div class="trust-item reveal d1">
         <div class="trust-icon">🌿</div>
         <h3 data-i18n="t1h">Природные рецепты</h3>
         <p data-i18n="t1p">Только травы и натуральные ингредиенты. Никакой химии.</p>
       </div>
-      <div class="trust-item">
+      <div class="trust-item reveal d2">
         <div class="trust-icon">💛</div>
         <h3 data-i18n="t2h">Тёплый подход</h3>
         <p data-i18n="t2p">Бабушка говорит с тобой как с родной — с заботой и без осуждения.</p>
       </div>
-      <div class="trust-item">
+      <div class="trust-item reveal d3">
         <div class="trust-icon">🕐</div>
         <h3 data-i18n="t3h">Ответ за 30 секунд</h3>
         <p data-i18n="t3p">Персональный рецепт сразу — без очереди и без записи.</p>
@@ -810,6 +955,12 @@ function restartQuiz() {
 function scrollToQuiz() {
   document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
 }
+
+/* ══ SCROLL REVEAL ══ */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 </script>
 </body>
 </html>
