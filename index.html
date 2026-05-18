@@ -23,6 +23,13 @@
   --herb-light:  rgba(58,125,68,0.12);
   --herb-glow:   rgba(58,125,68,0.25);
   --herb-border: rgba(58,125,68,0.4);
+  /* Пергамент */
+  --parch:       #f2e8cc;
+  --parch-dark:  #e8d9aa;
+  --parch-text:  #1e3320;
+  --parch-muted: #5a6e4a;
+  --parch-border:#c8a966;
+  --parch-accent:#8b4513;
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
@@ -215,12 +222,17 @@ header {
   gap: 12px;
 }
 .trust-badge {
-  background: var(--bg3);
-  border: 1px solid var(--border);
+  background: rgba(242,232,204,0.1);
+  border: 1px solid rgba(200,169,102,0.35);
   border-radius: 50px;
   padding: 8px 18px;
   font-size: 14px;
-  color: var(--muted);
+  color: var(--parch-dark);
+  transition: background 0.2s, border-color 0.2s;
+}
+.trust-badge:hover {
+  background: rgba(242,232,204,0.18);
+  border-color: var(--parch-border);
 }
 
 /* ── Квиз ── */
@@ -502,10 +514,24 @@ footer a:hover { text-decoration: underline; }
 .reveal.d2 { transition-delay: 0.2s; }
 .reveal.d3 { transition-delay: 0.3s; }
 
-/* ── Карточки с растительным акцентом ── */
+/* ── Карточки — пергаментный стиль ── */
 .card {
   position: relative;
   overflow: hidden;
+  background: var(--parch) !important;
+  border-color: var(--parch-border) !important;
+  border-width: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35), inset 0 0 40px rgba(200,169,102,0.08);
+}
+.card .card-quote { color: var(--parch-text); font-size: 15px; }
+.card .card-quote::before,
+.card .card-quote::after { color: var(--parch-accent); }
+.card .card-name  { color: var(--parch-text); }
+.card .card-meta  { color: var(--parch-muted); }
+.card .stars      { color: var(--parch-accent); }
+.card .card-avatar{
+  background: rgba(139,69,19,0.12);
+  border-color: var(--parch-accent);
 }
 .card::after {
   content: '🌿';
@@ -513,30 +539,34 @@ footer a:hover { text-decoration: underline; }
   bottom: -8px;
   right: 4px;
   font-size: 52px;
-  opacity: 0.05;
+  opacity: 0.07;
   transform: rotate(-20deg);
   pointer-events: none;
   transition: opacity 0.3s, transform 0.3s;
 }
 .card:hover {
-  border-color: var(--herb-border);
+  border-color: var(--herb) !important;
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(58,125,68,0.15);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(58,125,68,0.3);
   transition: all 0.3s ease;
 }
-.card:hover::after { opacity: 0.12; transform: rotate(-10deg) scale(1.1); }
+.card:hover::after { opacity: 0.14; transform: rotate(-10deg) scale(1.1); }
 
-/* ── Trust items hover ── */
+/* ── Trust items — пергаментные плитки ── */
 .trust-item {
   border-radius: var(--r);
-  border: 1px solid transparent;
-  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+  border: 2px solid var(--parch-border);
+  background: var(--parch);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   cursor: default;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 0 30px rgba(200,169,102,0.06);
 }
+.trust-item h3 { color: var(--parch-text); }
+.trust-item p  { color: var(--parch-muted); }
 .trust-item:hover {
-  background: var(--herb-light);
-  border-color: var(--herb-border);
+  border-color: var(--herb);
   transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(58,125,68,0.3);
 }
 .trust-icon { transition: transform 0.4s ease; }
 .trust-item:hover .trust-icon { transform: scale(1.25) rotate(12deg); }
@@ -554,11 +584,14 @@ footer a:hover { text-decoration: underline; }
 /* ── Grandma-says — зелёная полоска ── */
 .grandma-says { border-left-color: var(--herb); }
 
-/* ── Результат — тёплая рамка ── */
+/* ── Результат — пергамент с узором ── */
 .result-letter {
-  border-color: var(--herb-border);
-  background: linear-gradient(135deg, var(--bg3) 0%, rgba(58,125,68,0.05) 100%);
+  background: var(--parch);
+  border: 2px solid var(--parch-border);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 0 60px rgba(200,169,102,0.1);
 }
+.result-letter::before { content: '📜'; }
+.result-text { color: var(--parch-text); }
 
 /* ── Утилиты ── */
 .container     { max-width: 720px;  margin: 0 auto; padding: 0 20px; }
