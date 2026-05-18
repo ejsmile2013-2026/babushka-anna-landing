@@ -105,12 +105,12 @@ header {
   width: 100%; height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 0.45;
+  opacity: 1;
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(245,237,213,0.65);
+  background: rgba(5,10,5,0.52);
   z-index: 1;
 }
 
@@ -152,7 +152,7 @@ header {
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  background: #f5edd5;
+  background: #0a0a08;
   z-index: 1;
 }
 .hero-photo {
@@ -179,20 +179,23 @@ header {
 .hero h1 {
   font-size: clamp(36px, 7vw, 60px);
   font-weight: bold;
-  color: var(--text);
+  color: #f5edd5;
   line-height: 1.15;
   margin-bottom: 12px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
 }
 .hero-sub {
   font-size: clamp(15px, 3vw, 19px);
-  color: var(--muted);
+  color: #d4c99a;
   margin-bottom: 8px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 .hero-tagline {
   font-size: clamp(17px, 3.5vw, 22px);
-  color: var(--text);
+  color: #f0e8cc;
   margin-bottom: 36px;
   font-style: italic;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 .btn-primary {
   display: inline-block;
@@ -223,18 +226,18 @@ header {
   gap: 12px;
 }
 .trust-badge {
-  background: #fff8e8;
-  border: 2px solid var(--gold);
+  background: rgba(255,248,232,0.15);
+  border: 1.5px solid rgba(201,162,39,0.7);
   border-radius: 50px;
   padding: 9px 20px;
   font-size: 15px;
   font-weight: bold;
-  color: var(--text);
+  color: #f0e8cc;
   transition: background 0.2s, transform 0.15s;
-  box-shadow: 0 2px 8px rgba(201,162,39,0.2);
+  backdrop-filter: blur(4px);
 }
 .trust-badge:hover {
-  background: var(--gold-light);
+  background: rgba(201,162,39,0.25);
   transform: translateY(-2px);
 }
 
