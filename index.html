@@ -93,40 +93,34 @@ header {
   padding: 80px 20px 64px;
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 50% 0%,  rgba(249,115,22,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse at 0% 80%,  rgba(58,125,68,0.08)  0%, transparent 50%),
-    radial-gradient(ellipse at 100% 80%,rgba(58,125,68,0.08)  0%, transparent 50%);
+  background: #111a0e;
+  min-height: 520px;
 }
-/* Видео-фон в hero */
+/* Видео-фон — строго абсолютный */
 .hero-video {
-  position: absolute;
+  position: absolute !important;
   top: 0; left: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  z-index: 0;
-  opacity: 1;
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(5,10,5,0.52);
   z-index: 1;
 }
-
-/* Туркменский орнамент на пергаменте */
-.hero::before {
-  content: '';
-  position: absolute;
+/* Тёмный слой поверх видео */
+.hero-overlay {
+  position: absolute !important;
   inset: 0;
-  background-image:
-    repeating-linear-gradient(45deg,  rgba(90,60,20,0.07) 0px, rgba(90,60,20,0.07) 1px, transparent 1px, transparent 24px),
-    repeating-linear-gradient(-45deg, rgba(90,60,20,0.07) 0px, rgba(90,60,20,0.07) 1px, transparent 1px, transparent 24px);
-  pointer-events: none;
-  z-index: 0;
+  background: rgba(5,12,5,0.5);
+  z-index: 2;
 }
-.hero > * { position: relative; z-index: 2; }
-.hero-video, .hero-overlay { z-index: 0 !important; }
+/* Весь видимый контент hero — поверх overlay */
+.hero-photo-wrap,
+.hero h1,
+.hero-sub,
+.hero-tagline,
+.hero .btn-primary,
+.hero-trust {
+  position: relative;
+  z-index: 3;
+}
 
 /* Плавающие травы — отключены */
 .herbs-float { display: none; }
