@@ -303,8 +303,8 @@ header {
   font-size: clamp(20px, 4vw, 26px);
   font-weight: bold;
   margin-bottom: 24px;
-  color: #ddb84a;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.65);
+  color: #2d6235;
+  text-shadow: 0 1px 6px rgba(255,255,255,0.4);
 }
 .quiz-options { display: flex; flex-direction: column; gap: 12px; }
 .quiz-opt {
@@ -661,7 +661,7 @@ footer a:hover { color: var(--accent); text-decoration: underline; }
   <h1 data-i18n="heroTitle">Бабушка Анна</h1>
   <p class="hero-sub" data-i18n="heroSub">Народный целитель · Советский Туркменистан · 93 года мудрости</p>
   <p class="hero-tagline" data-i18n="heroTagline">«Природа знает лучше любого доктора, доченька»</p>
-  <button class="btn-primary" onclick="scrollToQuiz()" data-i18n="heroBtn">🌿 Спросить бабушку</button>
+  <button class="btn-primary" onclick="scrollToQuiz()" data-i18n="heroBtn">Спросить бабушку</button>
   <div class="hero-trust">
     <a href="https://babushka-anna.vercel.app" target="_blank" class="trust-badge" data-i18n="badge1">🌿 Народные рецепты</a>
     <a href="#quiz" class="trust-badge" data-i18n="badge2">💬 Бесплатно</a>
@@ -675,7 +675,7 @@ footer a:hover { color: var(--accent); text-decoration: underline; }
 <section class="quiz-section" id="quiz">
   <div class="quiz-wrap">
     <div class="quiz-header">
-      <h2 data-i18n="quizTitle">🌿 Бабушка тебя слушает</h2>
+      <h2 data-i18n="quizTitle">Бабушка тебя слушает</h2>
       <p data-i18n="quizSub">Ответь на 4 вопроса — получи личный народный рецепт</p>
     </div>
 
@@ -858,9 +858,9 @@ footer a:hover { color: var(--accent); text-decoration: underline; }
 const i18n = {
   ru: {
     heroTitle:'Бабушка Анна', heroSub:'Народный целитель · Советский Туркменистан · 93 года мудрости',
-    heroTagline:'«Природа знает лучше любого доктора, доченька»', heroBtn:'🌿 Спросить бабушку',
+    heroTagline:'«Природа знает лучше любого доктора, доченька»', heroBtn:'Спросить бабушку',
     badge1:'🌿 Народные рецепты', badge2:'💬 Бесплатно', badge3:'🕐 Ответ за 30 секунд',
-    quizTitle:'🌿 Бабушка тебя слушает', quizSub:'Ответь на 4 вопроса — получи личный народный рецепт',
+    quizTitle:'Бабушка тебя слушает', quizSub:'Ответь на 4 вопроса — получи личный народный рецепт',
     says1:'«Расскажи мне, доченька, что тебя беспокоит?»',
     says2:'«А давно ли это тебя беспокоит, золотая?»',
     says3:'«Скажи мне, сколько тебе лет — это важно для рецепта»',
@@ -883,9 +883,9 @@ const i18n = {
   },
   en: {
     heroTitle:'Grandma Anna', heroSub:'Folk Healer · Soviet Turkmenistan · 93 Years of Wisdom',
-    heroTagline:'"Nature knows better than any doctor, my dear"', heroBtn:'🌿 Ask Grandma',
+    heroTagline:'"Nature knows better than any doctor, my dear"', heroBtn:'Ask Grandma',
     badge1:'🌿 Natural Remedies', badge2:'💬 Free', badge3:'🕐 Answer in 30 seconds',
-    quizTitle:'🌿 Grandma is listening', quizSub:'Answer 4 questions — get your personal folk remedy',
+    quizTitle:'Grandma is listening', quizSub:'Answer 4 questions — get your personal folk remedy',
     says1:'"Tell me, dear, what is bothering you?"',
     says2:'"How long has this been troubling you, sweetheart?"',
     says3:'"Tell me your age — it matters for the recipe"',
@@ -908,9 +908,9 @@ const i18n = {
   },
   de: {
     heroTitle:'Oma Anna', heroSub:'Volksheilerin · Sowjetisches Turkmenistan · 93 Jahre Weisheit',
-    heroTagline:'"Die Natur weiß es besser als jeder Arzt, mein Kind"', heroBtn:'🌿 Oma fragen',
+    heroTagline:'"Die Natur weiß es besser als jeder Arzt, mein Kind"', heroBtn:'Oma fragen',
     badge1:'🌿 Naturrezepte', badge2:'💬 Kostenlos', badge3:'🕐 Antwort in 30 Sekunden',
-    quizTitle:'🌿 Oma hört dir zu', quizSub:'Beantworte 4 Fragen — erhalte dein persönliches Volksrezept',
+    quizTitle:'Oma hört dir zu', quizSub:'Beantworte 4 Fragen — erhalte dein persönliches Volksrezept',
     says1:'"Erzähl mir, mein Kind, was dich besorgt?"',
     says2:'"Wie lange macht dir das schon zu schaffen?"',
     says3:'"Sag mir dein Alter — das ist wichtig für das Rezept"',
