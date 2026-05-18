@@ -6,30 +6,29 @@
 <title>Бабушка Анна — Народный целитель</title>
 <meta name="description" content="Получи персональный народный рецепт от Бабушки Анны — 93 года мудрости из Туркменистана">
 <style>
-/* ── Переменные цветов ── */
+/* ── ПЕРГАМЕНТНЫЙ СТИЛЬ — старая книга трав ── */
 :root {
-  --bg:       #0a0c0a;
-  --bg2:      #0f120f;
-  --bg3:      #171d17;
-  --text:     #f1f5f9;
-  --muted:    #94a3b8;
-  --accent:   #f97316;
-  --accent-h: #ea580c;
-  --glow:     rgba(249,115,22,0.15);
-  --border:   rgba(255,255,255,0.08);
+  --bg:       #e8d9b0;
+  --bg2:      #dece9e;
+  --bg3:      #f0e6c8;
+  --text:     #1a2e12;
+  --muted:    #5a6e45;
+  --accent:   #9b3a10;
+  --accent-h: #7d2e0c;
+  --glow:     rgba(155,58,16,0.15);
+  --border:   rgba(90,60,20,0.25);
   --r:        14px;
-  --herb:        #3a7d44;
-  --herb-h:      #2d6235;
-  --herb-light:  rgba(58,125,68,0.12);
-  --herb-glow:   rgba(58,125,68,0.25);
-  --herb-border: rgba(58,125,68,0.4);
-  /* Пергамент */
-  --parch:       #f2e8cc;
-  --parch-dark:  #e8d9aa;
-  --parch-text:  #1e3320;
-  --parch-muted: #5a6e4a;
-  --parch-border:#c8a966;
-  --parch-accent:#8b4513;
+  --herb:        #2d6235;
+  --herb-h:      #1e4a27;
+  --herb-light:  rgba(45,98,53,0.1);
+  --herb-glow:   rgba(45,98,53,0.2);
+  --herb-border: rgba(45,98,53,0.45);
+  --parch:       #f5edd5;
+  --parch-dark:  #d9c89a;
+  --parch-border:#b8963a;
+  --parch-text:  #1a2e12;
+  --parch-muted: #4a5e38;
+  --parch-accent:#9b3a10;
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
@@ -47,15 +46,16 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10,10,10,0.92);
+  background: rgba(210,185,130,0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--parch-border);
   padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  box-shadow: 0 2px 12px rgba(90,60,20,0.15);
 }
 .logo {
   font-size: 20px;
@@ -76,11 +76,11 @@ header {
   transition: all 0.2s;
   font-family: inherit;
 }
-.lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+.lang-btn:hover { border-color: var(--herb); color: var(--herb); background: var(--herb-light); }
 .lang-btn.active {
-  background: var(--glow);
-  border-color: var(--accent);
-  color: var(--accent);
+  background: var(--herb);
+  border-color: var(--herb);
+  color: #f5edd5;
   font-weight: bold;
 }
 
@@ -95,14 +95,14 @@ header {
     radial-gradient(ellipse at 0% 80%,  rgba(58,125,68,0.08)  0%, transparent 50%),
     radial-gradient(ellipse at 100% 80%,rgba(58,125,68,0.08)  0%, transparent 50%);
 }
-/* Туркменский орнамент — тонкий паттерн на фоне hero */
+/* Туркменский орнамент на пергаменте */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(45deg,  rgba(58,125,68,0.04) 0px, rgba(58,125,68,0.04) 1px, transparent 1px, transparent 20px),
-    repeating-linear-gradient(-45deg, rgba(58,125,68,0.04) 0px, rgba(58,125,68,0.04) 1px, transparent 1px, transparent 20px);
+    repeating-linear-gradient(45deg,  rgba(90,60,20,0.07) 0px, rgba(90,60,20,0.07) 1px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(-45deg, rgba(90,60,20,0.07) 0px, rgba(90,60,20,0.07) 1px, transparent 1px, transparent 24px);
   pointer-events: none;
   z-index: 0;
 }
@@ -153,6 +153,7 @@ header {
   inset: -3px;
   border-radius: 50%;
   background: var(--bg);
+  background: #e8d9b0;
   z-index: 1;
 }
 .hero-photo {
@@ -195,24 +196,24 @@ header {
 }
 .btn-primary {
   display: inline-block;
-  background: var(--accent);
-  color: #fff;
+  background: var(--herb);
+  color: #f5edd5;
   font-family: inherit;
   font-size: 20px;
   font-weight: bold;
   padding: 18px 40px;
   border-radius: var(--r);
-  border: none;
+  border: 2px solid var(--herb-h);
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.2s, transform 0.1s;
-  box-shadow: 0 0 32px rgba(249,115,22,0.3);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(45,98,53,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
   animation: pulse 2.5s ease-in-out infinite;
 }
-.btn-primary:hover { background: var(--accent-h); transform: translateY(-2px); }
+.btn-primary:hover { background: var(--herb-h); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(45,98,53,0.45); }
 @keyframes pulse {
-  0%,100% { box-shadow: 0 0 32px rgba(249,115,22,0.3); }
-  50%      { box-shadow: 0 0 52px rgba(249,115,22,0.5); }
+  0%,100% { box-shadow: 0 4px 20px rgba(45,98,53,0.35); }
+  50%      { box-shadow: 0 4px 32px rgba(45,98,53,0.55); }
 }
 .hero-trust {
   margin-top: 28px;
@@ -238,8 +239,8 @@ header {
 /* ── Квиз ── */
 .quiz-section {
   background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-top: 2px solid var(--parch-border);
+  border-bottom: 2px solid var(--parch-border);
   padding: 64px 0;
 }
 .quiz-wrap { max-width: 600px; margin: 0 auto; padding: 0 20px; }
@@ -284,17 +285,18 @@ header {
 }
 .quiz-options { display: flex; flex-direction: column; gap: 12px; }
 .quiz-opt {
-  background: var(--bg3);
-  border: 1px solid var(--border);
+  background: var(--parch);
+  border: 2px solid var(--parch-border);
   border-radius: var(--r);
   padding: 16px 20px;
   font-family: inherit;
   font-size: 17px;
-  color: var(--text);
+  color: var(--parch-text);
   cursor: pointer;
   text-align: left;
   transition: all 0.2s;
   min-height: 56px;
+  box-shadow: 0 2px 8px rgba(90,60,20,0.1);
 }
 .quiz-opt:hover {
   border-color: var(--herb-border);
@@ -351,19 +353,20 @@ header {
 .result-actions { display: flex; flex-direction: column; gap: 12px; }
 .btn-secondary {
   display: block;
-  background: var(--bg3);
-  border: 1px solid var(--border);
+  background: transparent;
+  border: 2px solid var(--herb-border);
   border-radius: var(--r);
   padding: 16px 24px;
   font-family: inherit;
   font-size: 17px;
-  color: var(--text);
+  color: var(--herb);
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   transition: all 0.2s;
+  font-weight: bold;
 }
-.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+.btn-secondary:hover { background: var(--herb); color: #f5edd5; border-color: var(--herb); }
 .btn-restart {
   background: transparent;
   border: none;
@@ -467,15 +470,15 @@ header {
 
 /* ── Подвал ── */
 footer {
-  background: var(--bg);
-  border-top: 1px solid var(--border);
+  background: var(--bg2);
+  border-top: 2px solid var(--parch-border);
   padding: 36px 20px;
   text-align: center;
   color: var(--muted);
   font-size: 15px;
 }
-footer a { color: var(--accent); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
+footer a { color: var(--herb); text-decoration: none; font-weight: bold; }
+footer a:hover { color: var(--accent); text-decoration: underline; }
 .footer-links {
   display: flex;
   justify-content: center;
