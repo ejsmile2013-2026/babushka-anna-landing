@@ -382,9 +382,11 @@ header {
 }
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+@media (max-width: 720px) { .cards-grid { grid-template-columns: 1fr; } }
+@media (min-width: 721px) and (max-width: 900px) { .cards-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
 .card {
   background: var(--bg3);
   border: 1px solid var(--border);
@@ -424,10 +426,12 @@ header {
 }
 .trust-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   margin-top: 40px;
 }
+@media (max-width: 720px) { .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+@media (max-width: 480px) { .trust-grid { grid-template-columns: 1fr; } }
 .trust-item { text-align: center; padding: 20px 16px; }
 .trust-icon { font-size: 40px; margin-bottom: 12px; }
 .trust-item h3 { font-size: 18px; margin-bottom: 6px; }
@@ -557,7 +561,8 @@ footer a:hover { text-decoration: underline; }
 }
 
 /* ── Утилиты ── */
-.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+.container     { max-width: 720px;  margin: 0 auto; padding: 0 20px; }
+.container-wide{ max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
 /* ── Адаптив ── */
 @media (max-width: 480px) {
@@ -604,7 +609,7 @@ footer a:hover { text-decoration: underline; }
   </div>
   <div class="hero-photo-wrap">
     <div class="hero-photo">
-      <img src="babushka.jpg" alt="Бабушка Анна">
+      <img src="babushka.png" alt="Бабушка Анна">
     </div>
   </div>
   <h1 data-i18n="heroTitle">Бабушка Анна</h1>
@@ -705,7 +710,7 @@ footer a:hover { text-decoration: underline; }
 
 <!-- ═══ ОТЗЫВЫ ═══ -->
 <section class="testimonials">
-  <div class="container">
+  <div class="container-wide">
     <h2 class="section-title reveal" data-i18n="reviewsTitle">Что говорят люди</h2>
     <p class="section-sub reveal d1" data-i18n="reviewsSub">Реальные истории от тех, кому помогло</p>
     <div class="cards-grid">
@@ -750,7 +755,7 @@ footer a:hover { text-decoration: underline; }
 
 <!-- ═══ ДОВЕРИЕ ═══ -->
 <section class="trust-section">
-  <div class="container">
+  <div class="container-wide">
     <h2 class="section-title reveal" data-i18n="trustTitle">Почему люди доверяют бабушке Анне</h2>
     <p class="section-sub reveal d1" data-i18n="trustSub">Народная мудрость, проверенная поколениями</p>
     <div class="trust-grid">
