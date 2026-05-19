@@ -49,29 +49,29 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(245,237,213,0.97);
+  background: rgba(4,14,4,0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 1px solid rgba(176,137,45,0.3);
   padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  box-shadow: 0 2px 12px rgba(90,60,20,0.15);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
 }
 .logo {
   font-size: 20px;
   font-weight: bold;
-  color: var(--accent);
+  color: #B0892D;
   text-decoration: none;
   letter-spacing: 0.01em;
 }
 .lang-switcher { display: flex; gap: 6px; }
 .lang-btn {
   background: transparent;
-  border: 1px solid var(--border);
-  color: var(--muted);
+  border: 1.5px solid rgba(176,137,45,0.55);
+  color: #ddd9d5;
   border-radius: 8px;
   padding: 6px 13px;
   font-size: 14px;
@@ -79,11 +79,11 @@ header {
   transition: all 0.2s;
   font-family: inherit;
 }
-.lang-btn:hover { border-color: var(--herb); color: var(--herb); background: var(--herb-light); }
+.lang-btn:hover { border-color: #B0892D; color: #B0892D; background: rgba(176,137,45,0.1); }
 .lang-btn.active {
-  background: var(--herb);
-  border-color: var(--herb);
-  color: #f5edd5;
+  background: rgba(176,137,45,0.2);
+  border-color: #B0892D;
+  color: #B0892D;
   font-weight: bold;
 }
 
@@ -662,7 +662,7 @@ footer a:hover {
 
 <!-- ═══ ШАПКА ═══ -->
 <header>
-  <a href="#" class="logo">🌿 Бабушка Анна</a>
+  <a href="#" class="logo">Бабушка Анна</a>
   <div class="lang-switcher">
     <button class="lang-btn active" data-lang="ru" onclick="setLang('ru')">RU</button>
     <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
