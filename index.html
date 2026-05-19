@@ -569,9 +569,7 @@ footer a:hover { color: var(--accent); text-decoration: underline; }
 
 /* ── CTA section — зелёный фон с травами ── */
 .cta-section {
-  background:
-    radial-gradient(ellipse at 30% 50%, rgba(58,125,68,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 50%, rgba(249,115,22,0.06) 0%, transparent 60%);
+  background: url('cta-bg.png') center center / cover no-repeat;
 }
 
 /* ── Прогресс-бар — зелёный ── */
@@ -823,8 +821,8 @@ footer a:hover { color: var(--accent); text-decoration: underline; }
     <h2 data-i18n="ctaTitle">Хочешь большего?</h2>
     <p data-i18n="ctaSub">Загляни в справочник рецептов или напиши бабушке лично в Telegram</p>
     <div class="cta-btns">
-      <a href="https://babushka-anna.vercel.app" target="_blank" class="btn-primary" style="font-size:17px;padding:16px 32px;animation:none;" data-i18n="ctaHandbook">📖 Справочник рецептов</a>
-      <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-secondary" style="padding:16px 32px;font-size:17px;" data-i18n="ctaBot">💬 Написать в Telegram</a>
+      <a href="https://babushka-anna.vercel.app" target="_blank" class="btn-primary" style="font-size:17px;padding:16px 32px;" data-i18n="ctaHandbook">Справочник рецептов</a>
+      <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-primary" style="padding:16px 32px;font-size:17px;" data-i18n="ctaBot">Написать в Telegram</a>
     </div>
   </div>
 </section>
@@ -865,7 +863,7 @@ const i18n = {
     t3h:'Ответ за 30 секунд', t3p:'Персональный рецепт сразу — без очереди и без записи.',
     t4h:'Безопасно', t4p:'Всегда напоминаем: при серьёзных симптомах — к врачу. Только народные советы.',
     ctaTitle:'Хочешь большего?', ctaSub:'Загляни в справочник рецептов или напиши бабушке лично в Telegram',
-    ctaHandbook:'📖 Справочник рецептов', ctaBot:'💬 Написать в Telegram',
+    ctaHandbook:'Справочник рецептов', ctaBot:'Написать в Telegram',
     footerHandbook:'Справочник рецептов', footerGroup:'Наша группа',
     disclaimer:'Все советы носят информационный характер и не являются медицинской рекомендацией. При серьёзных симптомах обратитесь к врачу.'
   },
@@ -890,7 +888,7 @@ const i18n = {
     t3h:'Answer in 30 Seconds', t3p:'Personal recipe right away — no waiting, no booking.',
     t4h:'Safe', t4p:'We always remind: for serious symptoms — see a doctor.',
     ctaTitle:'Want more?', ctaSub:'Browse the recipe handbook or message Grandma personally on Telegram',
-    ctaHandbook:'📖 Recipe Handbook', ctaBot:'💬 Message on Telegram',
+    ctaHandbook:'Recipe Handbook', ctaBot:'Message on Telegram',
     footerHandbook:'Recipe Handbook', footerGroup:'Our Community',
     disclaimer:'All advice is for informational purposes and does not constitute medical advice. For serious symptoms, please consult a doctor.'
   },
@@ -915,7 +913,7 @@ const i18n = {
     t3h:'Antwort in 30 Sekunden', t3p:'Persönliches Rezept sofort — ohne Wartezeit.',
     t4h:'Sicher', t4p:'Wir erinnern immer: bei ernsteren Symptomen zum Arzt.',
     ctaTitle:'Möchtest du mehr?', ctaSub:'Schau ins Rezepthandbuch oder schreib Oma persönlich auf Telegram',
-    ctaHandbook:'📖 Rezepthandbuch', ctaBot:'💬 Auf Telegram schreiben',
+    ctaHandbook:'Rezepthandbuch', ctaBot:'Auf Telegram schreiben',
     footerHandbook:'Rezepthandbuch', footerGroup:'Unsere Gruppe',
     disclaimer:'Alle Ratschläge dienen nur zu Informationszwecken und stellen keine medizinische Beratung dar. Bei ernsteren Symptomen bitte einen Arzt aufsuchen.'
   }
