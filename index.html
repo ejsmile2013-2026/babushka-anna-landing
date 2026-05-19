@@ -500,7 +500,7 @@ header {
 .cta-section > * { position: relative; z-index: 1; }
 .cta-section h2 { color: #1a2e12; }
 .cta-section h2 { font-size: clamp(24px, 4vw, 34px); margin-bottom: 12px; }
-.cta-section p  { color: #6b6560; font-size: 18px; margin-bottom: 36px; text-shadow: none; }
+.cta-section p  { color: #f0e8d5; font-size: 18px; margin-bottom: 36px; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
 .cta-btns {
   display: flex;
   flex-wrap: wrap;
@@ -1102,8 +1102,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 /* ══ ПАРАЛЛАКС ══ */
 const pxSections = [
-  { el: document.getElementById('quiz'),        factor: 0.3  },
-  { el: document.querySelector('.cta-section'), factor: 0.35 },
+  { el: document.getElementById('quiz'), factor: 0.3 },
 ];
 
 let ticking = false;
