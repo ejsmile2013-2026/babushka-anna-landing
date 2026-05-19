@@ -561,6 +561,14 @@ footer a:hover {
 /* Разделители — отключены */
 .herb-divider { display: none; }
 
+/* ── Параллакс секции ── */
+.quiz-section,
+.cta-section,
+footer {
+  background-attachment: scroll;
+  will-change: background-position;
+  transition: background-position 0.05s linear;
+}
 /* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
@@ -779,8 +787,8 @@ footer a:hover {
         <div class="result-text" id="resultText"></div>
       </div>
       <div class="result-actions">
-        <a href="https://babushka-anna.vercel.app" target="_blank" class="btn-secondary" data-i18n="btnHandbook">📖 Открыть справочник рецептов</a>
-        <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-secondary" data-i18n="btnBot">💬 Написать бабушке в Telegram</a>
+        <a href="https://babushka-anna.vercel.app" target="_blank" class="btn-secondary" data-i18n="btnHandbook">Открыть справочник рецептов</a>
+        <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-secondary" data-i18n="btnBot">Написать бабушке в Telegram</a>
       </div>
       <button class="btn-restart" onclick="restartQuiz()" data-i18n="btnRestart">↺ Задать другой вопрос</button>
     </div>
@@ -911,7 +919,7 @@ const i18n = {
     q1:'Что беспокоит больше всего?', q2:'Как давно это беспокоит?',
     q3:'Сколько тебе лет?', q4:'Что уже пробовала?',
     loading:'Бабушка думает над твоим рецептом',
-    btnHandbook:'📖 Открыть справочник рецептов', btnBot:'💬 Написать бабушке в Telegram',
+    btnHandbook:'Открыть справочник рецептов', btnBot:'Написать бабушке в Telegram',
     btnRestart:'↺ Задать другой вопрос',
     reviewsTitle:'Что говорят люди', reviewsSub:'Реальные истории от тех, кому помогло',
     trustTitle:'Почему люди доверяют бабушке Анне', trustSub:'Народная мудрость, проверенная поколениями',
@@ -936,7 +944,7 @@ const i18n = {
     q1:'What bothers you most?', q2:'How long has this been going on?',
     q3:'How old are you?', q4:'What have you already tried?',
     loading:'Grandma is thinking about your remedy',
-    btnHandbook:'📖 Open Recipe Handbook', btnBot:'💬 Message Grandma on Telegram',
+    btnHandbook:'Open Recipe Handbook', btnBot:'Message Grandma on Telegram',
     btnRestart:'↺ Ask another question',
     reviewsTitle:'What people say', reviewsSub:'Real stories from those who found relief',
     trustTitle:'Why people trust Grandma Anna', trustSub:'Folk wisdom proven across generations',
@@ -961,7 +969,7 @@ const i18n = {
     q1:'Was bereitet dir die meisten Sorgen?', q2:'Wie lange geht das schon?',
     q3:'Wie alt bist du?', q4:'Was hast du schon versucht?',
     loading:'Oma denkt über dein Rezept nach',
-    btnHandbook:'📖 Rezepthandbuch öffnen', btnBot:'💬 Oma auf Telegram schreiben',
+    btnHandbook:'Rezepthandbuch öffnen', btnBot:'Oma auf Telegram schreiben',
     btnRestart:'↺ Andere Frage stellen',
     reviewsTitle:'Was die Menschen sagen', reviewsSub:'Echte Geschichten von denen, denen es geholfen hat',
     trustTitle:'Warum Menschen Oma Anna vertrauen', trustSub:'Volksweisheit, die sich generationenweise bewährt hat',
@@ -1055,6 +1063,37 @@ const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ══ ПАРАЛЛАКС ══ */
+const pxSections = [
+  { el: document.getElementById('quiz'),              factor: 0.3  },
+  { el: document.querySelector('.cta-section'),       factor: 0.35 },
+  { el: document.querySelector('footer'),             factor: 0.25 },
+];
+
+let ticking = false;
+function runParallax() {
+  pxSections.forEach(({ el, factor }) => {
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.bottom < -100 || rect.top > window.innerHeight + 100) return;
+    const offset = rect.top * factor * -1;
+    el.style.backgroundPositionY = `calc(50% + ${offset}px)`;
+  });
+
+  /* Лёгкий параллакс контента hero — фото плывёт медленнее */
+  const wrap = document.querySelector('.hero-photo-wrap');
+  const scrollY = window.pageYOffset;
+  if (wrap && scrollY < window.innerHeight * 1.3) {
+    wrap.style.transform = `translateY(${scrollY * 0.08}px)`;
+  }
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) { requestAnimationFrame(runParallax); ticking = true; }
+}, { passive: true });
+runParallax();
 </script>
 </body>
 </html>
