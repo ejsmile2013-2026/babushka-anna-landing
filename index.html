@@ -193,24 +193,24 @@ header {
 }
 .btn-primary {
   display: inline-block;
-  background: var(--herb);
+  background: var(--gold);
   color: #f5edd5;
   font-family: inherit;
   font-size: 20px;
   font-weight: bold;
   padding: 18px 40px;
   border-radius: var(--r);
-  border: 2px solid var(--herb-h);
+  border: 2px solid var(--gold-h);
   cursor: pointer;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(45,98,53,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
+  box-shadow: 0 4px 20px rgba(201,162,39,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
   animation: pulse 2.5s ease-in-out infinite;
 }
-.btn-primary:hover { background: var(--herb-h); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(45,98,53,0.45); }
+.btn-primary:hover { background: var(--gold-h); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(201,162,39,0.55); }
 @keyframes pulse {
-  0%,100% { box-shadow: 0 4px 20px rgba(45,98,53,0.35); }
-  50%      { box-shadow: 0 4px 32px rgba(45,98,53,0.55); }
+  0%,100% { box-shadow: 0 4px 20px rgba(201,162,39,0.4); }
+  50%      { box-shadow: 0 4px 36px rgba(201,162,39,0.6); }
 }
 .hero-trust {
   margin-top: 48px;
@@ -221,28 +221,25 @@ header {
 }
 .trust-badge {
   display: inline-block;
-  background: rgba(201,162,39,0.18);
-  border: 1.5px solid rgba(201,162,39,0.65);
+  background: rgba(248,246,244,0.2);
+  border: 1.5px solid rgba(248,246,244,0.45);
   border-radius: 50px;
   padding: 10px 22px;
   font-size: 15px;
   font-weight: bold;
-  color: #f5d98a;
+  color: #1a2e12;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, transform 0.15s, border-color 0.2s;
-  backdrop-filter: blur(4px);
+  transition: background 0.2s, transform 0.15s;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 .trust-badge:hover {
-  background: rgba(201,162,39,0.38);
-  border-color: #c9a227;
-  color: #fde27a;
+  background: rgba(248,246,244,0.35);
   transform: translateY(-2px);
 }
 .trust-badge:active {
-  background: rgba(150,115,10,0.6);
-  border-color: #a07c0e;
-  color: #c9a227;
+  background: rgba(248,246,244,0.5);
   transform: translateY(0px) scale(0.97);
 }
 
@@ -654,9 +651,9 @@ footer a:hover { color: var(--accent); text-decoration: underline; }
   <p class="hero-tagline" data-i18n="heroTagline">«Природа знает лучше любого доктора, доченька»</p>
   <button class="btn-primary" onclick="scrollToQuiz()" data-i18n="heroBtn">Спросить бабушку</button>
   <div class="hero-trust">
-    <a href="https://babushka-anna.vercel.app" target="_blank" class="trust-badge" data-i18n="badge1">🌿 Народные рецепты</a>
-    <a href="#quiz" class="trust-badge" data-i18n="badge2">💬 Бесплатно</a>
-    <a href="#quiz" class="trust-badge" data-i18n="badge3">🕐 Ответ за 30 секунд</a>
+    <a href="https://babushka-anna.vercel.app" target="_blank" class="trust-badge" data-i18n="badge1">Народные рецепты</a>
+    <a href="#quiz" class="trust-badge" data-i18n="badge2">Бесплатно</a>
+    <a href="#quiz" class="trust-badge" data-i18n="badge3">Ответ за 30 секунд</a>
   </div>
 </section>
 
@@ -850,7 +847,7 @@ const i18n = {
   ru: {
     heroTitle:'Бабушка Анна', heroSub:'Народный целитель · Советский Туркменистан · 93 года мудрости',
     heroTagline:'«Природа знает лучше любого доктора, доченька»', heroBtn:'Спросить бабушку',
-    badge1:'🌿 Народные рецепты', badge2:'💬 Бесплатно', badge3:'🕐 Ответ за 30 секунд',
+    badge1:'Народные рецепты', badge2:'Бесплатно', badge3:'Ответ за 30 секунд',
     quizTitle:'Бабушка тебя слушает', quizSub:'Ответь на 4 вопроса — получи личный народный рецепт',
     says1:'«Расскажи мне, доченька, что тебя беспокоит?»',
     says2:'«А давно ли это тебя беспокоит, золотая?»',
@@ -875,7 +872,7 @@ const i18n = {
   en: {
     heroTitle:'Grandma Anna', heroSub:'Folk Healer · Soviet Turkmenistan · 93 Years of Wisdom',
     heroTagline:'"Nature knows better than any doctor, my dear"', heroBtn:'Ask Grandma',
-    badge1:'🌿 Natural Remedies', badge2:'💬 Free', badge3:'🕐 Answer in 30 seconds',
+    badge1:'Natural Remedies', badge2:'Free', badge3:'Answer in 30 seconds',
     quizTitle:'Grandma is listening', quizSub:'Answer 4 questions — get your personal folk remedy',
     says1:'"Tell me, dear, what is bothering you?"',
     says2:'"How long has this been troubling you, sweetheart?"',
@@ -900,7 +897,7 @@ const i18n = {
   de: {
     heroTitle:'Oma Anna', heroSub:'Volksheilerin · Sowjetisches Turkmenistan · 93 Jahre Weisheit',
     heroTagline:'"Die Natur weiß es besser als jeder Arzt, mein Kind"', heroBtn:'Oma fragen',
-    badge1:'🌿 Naturrezepte', badge2:'💬 Kostenlos', badge3:'🕐 Antwort in 30 Sekunden',
+    badge1:'Naturrezepte', badge2:'Kostenlos', badge3:'Antwort in 30 Sekunden',
     quizTitle:'Oma hört dir zu', quizSub:'Beantworte 4 Fragen — erhalte dein persönliches Volksrezept',
     says1:'"Erzähl mir, mein Kind, was dich besorgt?"',
     says2:'"Wie lange macht dir das schon zu schaffen?"',
