@@ -503,15 +503,24 @@ header {
 
 /* ── Подвал ── */
 footer {
-  background: var(--bg2);
+  background: url('futter_bg.png') center center / cover no-repeat;
   border-top: none;
-  padding: 36px 20px;
+  padding: 40px 20px;
   text-align: center;
-  color: var(--muted);
+  color: #c8c0b8;
   font-size: 15px;
+  position: relative;
 }
-footer a { color: var(--herb); text-decoration: none; font-weight: bold; }
-footer a:hover { color: var(--accent); text-decoration: underline; }
+footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(5,12,5,0.62);
+  pointer-events: none;
+}
+footer > * { position: relative; z-index: 1; }
+footer a { color: #ddd9d5; text-decoration: none; font-weight: bold; transition: color 0.2s; }
+footer a:hover { color: #B0892D; text-decoration: underline; }
 .footer-links {
   display: flex;
   justify-content: center;
