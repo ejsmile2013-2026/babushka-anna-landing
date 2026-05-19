@@ -739,12 +739,12 @@ footer {
       <p class="grandma-says" data-i18n="says1">«Расскажи мне, доченька, что тебя беспокоит?»</p>
       <p class="quiz-q" data-i18n="q1">Что беспокоит больше всего?</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="answer('symptom','боль в спине или суставах',2)">💪 Боль в спине или суставах</button>
-        <button class="quiz-opt" onclick="answer('symptom','проблемы со сном или нервами',2)">😴 Сон или нервы</button>
-        <button class="quiz-opt" onclick="answer('symptom','давление или сердце',2)">❤️ Давление или сердце</button>
-        <button class="quiz-opt" onclick="answer('symptom','желудок или пищеварение',2)">🌿 Желудок или пищеварение</button>
-        <button class="quiz-opt" onclick="answer('symptom','усталость и упадок сил',2)">⚡ Усталость или упадок сил</button>
-        <button class="quiz-opt" onclick="answer('symptom','иммунитет или частые простуды',2)">🛡️ Иммунитет или простуды</button>
+        <button class="quiz-opt" data-i18n="opt_back"    onclick="answer('symptom','боль в спине или суставах',2)">💪 Боль в спине или суставах</button>
+        <button class="quiz-opt" data-i18n="opt_sleep"   onclick="answer('symptom','проблемы со сном или нервами',2)">😴 Сон или нервы</button>
+        <button class="quiz-opt" data-i18n="opt_heart"   onclick="answer('symptom','давление или сердце',2)">❤️ Давление или сердце</button>
+        <button class="quiz-opt" data-i18n="opt_stomach" onclick="answer('symptom','желудок или пищеварение',2)">🌿 Желудок или пищеварение</button>
+        <button class="quiz-opt" data-i18n="opt_tired"   onclick="answer('symptom','усталость и упадок сил',2)">⚡ Усталость или упадок сил</button>
+        <button class="quiz-opt" data-i18n="opt_immune"  onclick="answer('symptom','иммунитет или частые простуды',2)">🛡️ Иммунитет или простуды</button>
       </div>
     </div>
 
@@ -753,10 +753,10 @@ footer {
       <p class="grandma-says" data-i18n="says2">«А давно ли это тебя беспокоит, золотая?»</p>
       <p class="quiz-q" data-i18n="q2">Как давно это беспокоит?</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="answer('duration','несколько дней',3)">📅 Несколько дней</button>
-        <button class="quiz-opt" onclick="answer('duration','несколько недель',3)">🗓️ Несколько недель</button>
-        <button class="quiz-opt" onclick="answer('duration','несколько месяцев',3)">📆 Несколько месяцев</button>
-        <button class="quiz-opt" onclick="answer('duration','больше года',3)">🕰️ Давно, больше года</button>
+        <button class="quiz-opt" data-i18n="opt_days"   onclick="answer('duration','несколько дней',3)">📅 Несколько дней</button>
+        <button class="quiz-opt" data-i18n="opt_weeks"  onclick="answer('duration','несколько недель',3)">🗓️ Несколько недель</button>
+        <button class="quiz-opt" data-i18n="opt_months" onclick="answer('duration','несколько месяцев',3)">📆 Несколько месяцев</button>
+        <button class="quiz-opt" data-i18n="opt_year"   onclick="answer('duration','больше года',3)">🕰️ Давно, больше года</button>
       </div>
     </div>
 
@@ -765,10 +765,10 @@ footer {
       <p class="grandma-says" data-i18n="says3">«Скажи мне, сколько тебе лет — это важно для рецепта»</p>
       <p class="quiz-q" data-i18n="q3">Сколько тебе лет?</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="answer('age','до 35 лет',4)">🌱 До 35 лет</button>
-        <button class="quiz-opt" onclick="answer('age','35–50 лет',4)">🌿 35–50 лет</button>
-        <button class="quiz-opt" onclick="answer('age','50–65 лет',4)">🍃 50–65 лет</button>
-        <button class="quiz-opt" onclick="answer('age','старше 65 лет',4)">🌳 Старше 65 лет</button>
+        <button class="quiz-opt" data-i18n="opt_u35" onclick="answer('age','до 35 лет',4)">🌱 До 35 лет</button>
+        <button class="quiz-opt" data-i18n="opt_35"  onclick="answer('age','35–50 лет',4)">🌿 35–50 лет</button>
+        <button class="quiz-opt" data-i18n="opt_50"  onclick="answer('age','50–65 лет',4)">🍃 50–65 лет</button>
+        <button class="quiz-opt" data-i18n="opt_65"  onclick="answer('age','старше 65 лет',4)">🌳 Старше 65 лет</button>
       </div>
     </div>
 
@@ -777,10 +777,10 @@ footer {
       <p class="grandma-says" data-i18n="says4">«Хорошо, последний вопрос...»</p>
       <p class="quiz-q" data-i18n="q4">Что уже пробовала?</p>
       <div class="quiz-options">
-        <button class="quiz-opt" onclick="answer('tried','ничего не пробовала','result')">🤷 Ещё ничего не пробовала</button>
-        <button class="quiz-opt" onclick="answer('tried','аптечные таблетки','result')">💊 Аптечные таблетки</button>
-        <button class="quiz-opt" onclick="answer('tried','народные средства','result')">🌿 Народные средства</button>
-        <button class="quiz-opt" onclick="answer('tried','обращалась к врачу','result')">🏥 Ходила к врачу</button>
+        <button class="quiz-opt" data-i18n="opt_nothing" onclick="answer('tried','ничего не пробовала','result')">🤷 Ещё ничего не пробовала</button>
+        <button class="quiz-opt" data-i18n="opt_pills"   onclick="answer('tried','аптечные таблетки','result')">💊 Аптечные таблетки</button>
+        <button class="quiz-opt" data-i18n="opt_folk"    onclick="answer('tried','народные средства','result')">🌿 Народные средства</button>
+        <button class="quiz-opt" data-i18n="opt_doctor"  onclick="answer('tried','обращалась к врачу','result')">🏥 Ходила к врачу</button>
       </div>
     </div>
 
@@ -930,6 +930,14 @@ const i18n = {
     loading:'Бабушка думает над твоим рецептом',
     btnHandbook:'Открыть справочник рецептов', btnBot:'Написать бабушке в Telegram',
     btnRestart:'↺ Задать другой вопрос',
+    opt_back:'💪 Боль в спине или суставах', opt_sleep:'😴 Сон или нервы',
+    opt_heart:'❤️ Давление или сердце', opt_stomach:'🌿 Желудок или пищеварение',
+    opt_tired:'⚡ Усталость или упадок сил', opt_immune:'🛡️ Иммунитет или простуды',
+    opt_days:'📅 Несколько дней', opt_weeks:'🗓️ Несколько недель',
+    opt_months:'📆 Несколько месяцев', opt_year:'🕰️ Давно, больше года',
+    opt_u35:'🌱 До 35 лет', opt_35:'🌿 35–50 лет', opt_50:'🍃 50–65 лет', opt_65:'🌳 Старше 65 лет',
+    opt_nothing:'🤷 Ещё ничего не пробовала', opt_pills:'💊 Аптечные таблетки',
+    opt_folk:'🌿 Народные средства', opt_doctor:'🏥 Ходила к врачу',
     reviewsTitle:'Что говорят люди', reviewsSub:'Реальные истории от тех, кому помогло',
     trustTitle:'Почему люди доверяют бабушке Анне', trustSub:'Народная мудрость, проверенная поколениями',
     t1h:'Природные рецепты', t1p:'Только травы и натуральные ингредиенты. Никакой химии.',
@@ -955,6 +963,14 @@ const i18n = {
     loading:'Grandma is thinking about your remedy',
     btnHandbook:'Open Recipe Handbook', btnBot:'Message Grandma on Telegram',
     btnRestart:'↺ Ask another question',
+    opt_back:'💪 Back or joint pain', opt_sleep:'😴 Sleep or nerves',
+    opt_heart:'❤️ Blood pressure or heart', opt_stomach:'🌿 Stomach or digestion',
+    opt_tired:'⚡ Fatigue or low energy', opt_immune:'🛡️ Immunity or frequent colds',
+    opt_days:'📅 A few days', opt_weeks:'🗓️ A few weeks',
+    opt_months:'📆 A few months', opt_year:'🕰️ A long time, over a year',
+    opt_u35:'🌱 Under 35', opt_35:'🌿 35–50', opt_50:'🍃 50–65', opt_65:'🌳 Over 65',
+    opt_nothing:'🤷 Haven\'t tried anything yet', opt_pills:'💊 Pharmacy medicine',
+    opt_folk:'🌿 Folk remedies', opt_doctor:'🏥 Visited a doctor',
     reviewsTitle:'What people say', reviewsSub:'Real stories from those who found relief',
     trustTitle:'Why people trust Grandma Anna', trustSub:'Folk wisdom proven across generations',
     t1h:'Natural Recipes', t1p:'Only herbs and natural ingredients. No chemicals.',
@@ -980,6 +996,14 @@ const i18n = {
     loading:'Oma denkt über dein Rezept nach',
     btnHandbook:'Rezepthandbuch öffnen', btnBot:'Oma auf Telegram schreiben',
     btnRestart:'↺ Andere Frage stellen',
+    opt_back:'💪 Rücken- oder Gelenkschmerzen', opt_sleep:'😴 Schlaf oder Nerven',
+    opt_heart:'❤️ Blutdruck oder Herz', opt_stomach:'🌿 Magen oder Verdauung',
+    opt_tired:'⚡ Müdigkeit oder Energiemangel', opt_immune:'🛡️ Immunsystem oder Erkältungen',
+    opt_days:'📅 Einige Tage', opt_weeks:'🗓️ Einige Wochen',
+    opt_months:'📆 Einige Monate', opt_year:'🕰️ Schon lange, über ein Jahr',
+    opt_u35:'🌱 Unter 35', opt_35:'🌿 35–50', opt_50:'🍃 50–65', opt_65:'🌳 Über 65',
+    opt_nothing:'🤷 Noch nichts versucht', opt_pills:'💊 Apothekenmittel',
+    opt_folk:'🌿 Volksheilmittel', opt_doctor:'🏥 Arzt aufgesucht',
     reviewsTitle:'Was die Menschen sagen', reviewsSub:'Echte Geschichten von denen, denen es geholfen hat',
     trustTitle:'Warum Menschen Oma Anna vertrauen', trustSub:'Volksweisheit, die sich generationenweise bewährt hat',
     t1h:'Naturrezepte', t1p:'Nur Kräuter und natürliche Zutaten. Keine Chemie.',
