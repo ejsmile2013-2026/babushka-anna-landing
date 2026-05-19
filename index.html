@@ -256,13 +256,13 @@ header {
 .quiz-header h2 {
   font-size: clamp(22px, 4vw, 30px);
   margin-bottom: 8px;
-  color: #f0e8d5;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  color: #2c2824;
+  text-shadow: none;
 }
 .quiz-header p  {
-  color: #f0e8d5;
+  color: #3a3530;
   font-size: 16px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  text-shadow: none;
 }
 .progress-bar {
   background: rgba(240,234,216,0.5);
@@ -500,13 +500,15 @@ header {
 .cta-section > * { position: relative; z-index: 1; }
 .cta-section h2 { color: #1a2e12; }
 .cta-section h2 { font-size: clamp(24px, 4vw, 34px); margin-bottom: 12px; }
-.cta-section p  { color: #f0e8d5; font-size: 18px; margin-bottom: 36px; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+.cta-section p  { color: #3a3530; font-size: 18px; margin-bottom: 36px; text-shadow: none; }
 .cta-btns {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
 }
+.cta-btns .btn-primary:hover,
+.cta-btns .btn-outline:hover { transform: none; }
 
 /* ── Подвал ── */
 footer {
