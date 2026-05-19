@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Impressum — Бабушка Анна</title>
+<style>
+:root {
+  --bg: #f5edd5; --bg2: #faf4e4;
+  --text: #1a2e12; --muted: #6b6560;
+  --gold: #B0892D; --r: 14px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:Georgia,'Times New Roman',serif; font-size:17px; line-height:1.75; }
+header {
+  background: rgba(245,237,213,0.97);
+  border-bottom: 2px solid var(--gold);
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-size:20px; font-weight:bold; color:var(--gold); text-decoration:none; }
+.back { color:var(--gold); text-decoration:none; font-size:15px; }
+.back:hover { text-decoration:underline; }
+main { max-width: 720px; margin: 60px auto; padding: 0 20px 80px; }
+h1 { font-size: clamp(28px,5vw,40px); margin-bottom: 8px; color: var(--text); }
+.subtitle { color: var(--muted); margin-bottom: 40px; font-size: 16px; }
+h2 { font-size: 20px; margin: 32px 0 10px; color: var(--text); border-bottom: 1px solid rgba(176,137,45,0.3); padding-bottom: 6px; }
+p { margin-bottom: 14px; color: var(--text); }
+a { color: var(--gold); }
+.card {
+  background: #f8f6f4; border: 2px solid #d1cbc4;
+  border-radius: var(--r); padding: 24px; margin-bottom: 24px;
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">🌿 Бабушка Анна</a>
+  <a href="index.html" class="back">← Назад</a>
+</header>
+<main>
+  <h1>Impressum</h1>
+  <p class="subtitle">Angaben gemäß § 5 TMG / Legal Notice</p>
+
+  <div class="card">
+    <h2>Verantwortlich / Ответственное лицо</h2>
+    <p><strong>Njasik Touch</strong><br>
+    Concord, USA<br>
+    E-Mail: <a href="mailto:njasik@icloud.com">njasik@icloud.com</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Über dieses Projekt / О проекте</h2>
+    <p>«Бабушка Анна» — это информационный проект о народной медицине и натуральных рецептах. Все материалы носят исключительно информационный характер и не являются медицинской консультацией.</p>
+    <p>"Babushka Anna" is an informational project about folk medicine and natural remedies. All content is for informational purposes only and does not constitute medical advice.</p>
+  </div>
+
+  <div class="card">
+    <h2>Haftungsausschluss / Отказ от ответственности</h2>
+    <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir keine Gewähr übernehmen.</p>
+    <p>Содержимое сайта создано с максимальной тщательностью. Мы не несём ответственности за актуальность, полноту и правильность предоставленной информации.</p>
+  </div>
+
+  <div class="card">
+    <h2>Kontakt / Контакт</h2>
+    <p>Bei Fragen oder Anliegen wenden Sie sich bitte an:<br>
+    По всем вопросам обращайтесь:<br>
+    <a href="mailto:njasik@icloud.com">njasik@icloud.com</a></p>
+  </div>
+</main>
+</body>
+</html>
