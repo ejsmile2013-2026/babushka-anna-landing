@@ -1106,18 +1106,18 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 /* ══ ПАРАЛЛАКС ══ */
 const pxSections = [
-  { el: document.getElementById('quiz'),        factor: 0.3  },
-  { el: document.querySelector('.cta-section'), factor: 0.35 },
+  { el: document.getElementById('quiz'),        factor: 0.3,  base: '50%' },
+  { el: document.querySelector('.cta-section'), factor: 0.35, base: '35%' },
 ];
 
 let ticking = false;
 function runParallax() {
-  pxSections.forEach(({ el, factor }) => {
+  pxSections.forEach(({ el, factor, base }) => {
     if (!el) return;
     const rect = el.getBoundingClientRect();
     if (rect.bottom < -100 || rect.top > window.innerHeight + 100) return;
     const offset = rect.top * factor * -1;
-    el.style.backgroundPositionY = `calc(50% + ${offset}px)`;
+    el.style.backgroundPositionY = `calc(${base} + ${offset}px)`;
   });
 
   /* Лёгкий параллакс контента hero — фото плывёт медленнее */
