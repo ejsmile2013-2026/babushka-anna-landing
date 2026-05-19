@@ -256,13 +256,13 @@ header {
 .quiz-header h2 {
   font-size: clamp(22px, 4vw, 30px);
   margin-bottom: 8px;
-  color: #B0892D;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  color: #1a2e12;
+  text-shadow: none;
 }
 .quiz-header p  {
-  color: #f0ead8;
+  color: #6b6560;
   font-size: 16px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+  text-shadow: none;
 }
 .progress-bar {
   background: rgba(240,234,216,0.5);
@@ -319,11 +319,12 @@ header {
   box-shadow: 0 2px 8px rgba(90,60,20,0.1);
 }
 .quiz-opt:hover {
-  border-color: var(--herb-border);
-  background: var(--herb-light);
+  border-color: #9a9590;
+  background: rgba(154,149,144,0.1);
   transform: translateX(6px);
-  box-shadow: -3px 0 0 var(--herb);
+  box-shadow: -3px 0 0 #9a9590;
 }
+.quiz-opt:focus  { outline: none; border-color: #9a9590; }
 .quiz-opt:active {
   transform: translateX(3px) scale(0.99);
 }
@@ -410,7 +411,7 @@ header {
 .btn-restart {
   background: transparent;
   border: none;
-  color: var(--muted);
+  color: #1a2e12;
   font-family: inherit;
   font-size: 15px;
   cursor: pointer;
