@@ -1102,7 +1102,8 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 /* ══ ПАРАЛЛАКС ══ */
 const pxSections = [
-  { el: document.getElementById('quiz'), factor: 0.3 },
+  { el: document.getElementById('quiz'),        factor: 0.3  },
+  { el: document.querySelector('.cta-section'), factor: 0.35 },
 ];
 
 let ticking = false;
