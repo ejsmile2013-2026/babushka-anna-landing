@@ -535,10 +535,18 @@ footer a:hover {
   gap: 24px;
   margin-bottom: 16px;
 }
+.footer-legal {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #a09890;
+}
+.footer-legal a { color: #b8b0a5; font-weight: normal; font-size: 13px; }
+.footer-legal a:hover { color: #B0892D; }
+.footer-sep { margin: 0 8px; color: #7a7268; }
 .disclaimer {
   margin-top: 16px;
   font-size: 13px;
-  color: var(--muted);
+  color: #c8c0b5;
   max-width: 520px;
   margin-left: auto;
   margin-right: auto;
@@ -871,7 +879,14 @@ footer a:hover {
     <a href="https://t.me/babushka_anna_heal_bot" target="_blank">Telegram-бот</a>
     <a href="https://t.me/+u39XPrezFspmM2Ey" target="_blank" data-i18n="footerGroup">Наша группа</a>
   </div>
-  <div>© 2026 Бабушка Анна</div>
+  <div class="footer-legal">
+    <a href="privacy.html">Политика конфиденциальности</a>
+    <span class="footer-sep">·</span>
+    <a href="impressum.html">Impressum</a>
+    <span class="footer-sep">·</span>
+    <a href="terms.html">Условия использования</a>
+  </div>
+  <div style="margin-top:12px;">© 2026 Бабушка Анна</div>
   <p class="disclaimer" data-i18n="disclaimer">Все советы носят информационный характер и не являются медицинской рекомендацией. При серьёзных симптомах обратитесь к врачу.</p>
 </footer>
 
