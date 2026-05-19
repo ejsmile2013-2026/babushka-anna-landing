@@ -193,9 +193,9 @@ header {
 }
 .btn-primary {
   display: inline-block;
-  background: #ddd9d5;
+  background: var(--gold);
   color: #ffffff;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
   font-family: inherit;
   font-size: 20px;
   font-weight: bold;
@@ -208,7 +208,7 @@ header {
   box-shadow: 0 4px 20px rgba(201,162,39,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
   animation: pulse 2.5s ease-in-out infinite;
 }
-.btn-primary:hover { background: var(--gold-h); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(201,162,39,0.55); }
+.btn-primary:hover { background: #ddd9d5; color: #1a2e12; text-shadow: none; transform: translateY(-3px); box-shadow: 0 8px 28px rgba(201,162,39,0.3); }
 @keyframes pulse {
   0%,100% { box-shadow: 0 4px 20px rgba(201,162,39,0.4); }
   50%      { box-shadow: 0 4px 36px rgba(201,162,39,0.6); }
