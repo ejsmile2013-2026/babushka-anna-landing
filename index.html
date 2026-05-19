@@ -651,18 +651,27 @@ footer {
 /* ── Адаптив ── */
 @media (max-width: 480px) {
   body { font-size: 17px; }
-  .hero { padding: 48px 20px 40px; }
-  .hero-emoji { font-size: 56px; }
+  .hero { padding: 48px 20px 40px; min-height: auto; }
+  .hero-photo-wrap { width: 130px; height: 130px; }
+  .hero-photo { width: 130px; height: 130px; }
   .btn-primary { width: 100%; text-align: center; font-size: 18px; padding: 16px 24px; }
+  .btn-outline  { width: 100%; text-align: center; font-size: 17px; padding: 14px 20px; }
   .quiz-opt { font-size: 16px; padding: 14px 16px; }
   .result-letter { padding: 20px; }
   .cta-btns { flex-direction: column; align-items: stretch; }
   .cta-btns .btn-primary,
-  .cta-btns .btn-secondary { text-align: center; }
+  .cta-btns .btn-outline { text-align: center; }
+  .hero-trust { gap: 8px; }
+  .trust-badge { font-size: 13px; padding: 8px 14px; }
+  .footer-links { gap: 14px; font-size: 14px; }
+  .footer-legal { font-size: 12px; }
 }
 @media (max-width: 720px) {
   .quiz-section { padding: 48px 0; }
   .testimonials, .trust-section { padding: 48px 0; }
+  .cta-btns { flex-direction: column; align-items: center; gap: 12px; }
+  .cta-btns .btn-primary,
+  .cta-btns .btn-outline { width: 100%; max-width: 360px; text-align: center; }
 }
 </style>
 </head>
@@ -1066,9 +1075,8 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 /* ══ ПАРАЛЛАКС ══ */
 const pxSections = [
-  { el: document.getElementById('quiz'),              factor: 0.3  },
-  { el: document.querySelector('.cta-section'),       factor: 0.35 },
-  { el: document.querySelector('footer'),             factor: 0.25 },
+  { el: document.getElementById('quiz'),        factor: 0.3  },
+  { el: document.querySelector('.cta-section'), factor: 0.35 },
 ];
 
 let ticking = false;
@@ -1090,10 +1098,13 @@ function runParallax() {
   ticking = false;
 }
 
-window.addEventListener('scroll', () => {
-  if (!ticking) { requestAnimationFrame(runParallax); ticking = true; }
-}, { passive: true });
-runParallax();
+/* Параллакс только на десктопе — на мобиле отключён */
+if (window.innerWidth > 768) {
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(runParallax); ticking = true; }
+  }, { passive: true });
+  runParallax();
+}
 </script>
 </body>
 </html>
