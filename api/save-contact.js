@@ -23,7 +23,7 @@ module.exports = async function handler(req, res) {
     const sheets = google.sheets({ version: 'v4', auth });
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEETS_ID,
-      range: 'Лиды!A:E',
+      range: 'Leads!A:E',
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values: [[timestamp, contact, lang || 'ru', symptom || '', isEmail ? 'email' : 'telegram']],
