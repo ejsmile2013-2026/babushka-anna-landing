@@ -33,6 +33,12 @@ module.exports = async function handler(req, res) {
     console.error('Sheets error:', err.message);
     console.error('Sheet ID used:', process.env.GOOGLE_SHEETS_ID);
     console.error('Has credentials:', !!process.env.GOOGLE_SERVICE_ACCOUNT);
+    try {
+      const creds = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+      console.error('Service account email:', creds.client_email);
+    } catch (e) {
+      console.error('Failed to parse credentials JSON');
+    }
   }
 
   // Notify admin via Telegram
