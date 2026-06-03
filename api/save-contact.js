@@ -21,18 +21,26 @@ module.exports = async function handler(req, res) {
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
     const sheets = google.sheets({ version: 'v4', auth });
+
+    // Diagnostic: check what tabs exist
+    const meta = await sheets.spreadsheets.get({ spreadsheetId: process.env.GOOGLE_SHEETS_ID });
+    const tabNames = meta.data.sheets.map(s => s.properties.title).join(', ');
+    console.log('Spreadsheet title:', meta.data.properties.title);
+    console.log('Tab names:', tabNames);
+
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEETS_ID,
-      range: 'Leads!A:E',
+      range: `${meta.data.sheets[0].properties.title}!A:E`,
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values: [[timestamp, contact, lang || 'ru', symptom || '', isEmail ? 'email' : 'telegram']],
       },
     });
+    console.log('Written to sheet:', meta.data.sheets[0].properties.title);
   } catch (err) {
     console.error('Sheets error:', err.message);
+    console.error('Error code:', err.code);
     console.error('Sheet ID used:', process.env.GOOGLE_SHEETS_ID);
-    console.error('Has credentials:', !!process.env.GOOGLE_SERVICE_ACCOUNT);
     try {
       const creds = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
       console.error('Service account email:', creds.client_email);
