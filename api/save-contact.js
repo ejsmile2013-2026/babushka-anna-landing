@@ -7,6 +7,8 @@ module.exports = async function handler(req, res) {
   const { contact, lang, symptom, recipe } = req.body || {};
   if (!contact || contact.length < 3) return res.status(400).json({ error: 'invalid' });
 
+  console.log('SHEETS_ID in use:', process.env.GOOGLE_SHEETS_ID);
+
   const botToken    = process.env.TELEGRAM_BOT_TOKEN;
   const adminChatId = process.env.ADMIN_CHAT_ID;
   const resendKey   = process.env.RESEND_API_KEY;
