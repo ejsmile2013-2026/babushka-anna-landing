@@ -11,14 +11,25 @@ export default async function handler(req, res) {
   const isEmail     = lang !== 'ru';
 
   // Notify admin via Telegram
+  let tgDebug = { botToken: !!botToken, adminChatId: adminChatId || 'NOT SET' };
   if (botToken && adminChatId) {
     const type = isEmail ? 'Email' : 'Telegram';
     const text = `🌿 Новый контакт с лендинга\n${type}: ${contact}\nЯзык: ${lang || '?'}\nСимптом: ${symptom || 'не указан'}`;
-    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: adminChatId, text })
-    }).catch(() => {});
+    try {
+      const tgRes = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: adminChatId, text })
+      });
+      const tgData = await tgRes.json();
+      tgDebug.tgResponse = tgData;
+      console.log('Telegram response:', JSON.stringify(tgData));
+    } catch (e) {
+      tgDebug.error = e.message;
+      console.log('Telegram error:', e.message);
+    }
+  } else {
+    console.log('Telegram skipped: botToken=' + !!botToken + ' adminChatId=' + adminChatId);
   }
 
   // Send recipe by email (EN/DE) if Resend key is configured
@@ -43,5 +54,5 @@ export default async function handler(req, res) {
     }).catch(() => {});
   }
 
-  res.status(200).json({ ok: true });
+  res.status(200).json({ ok: true, debug: tgDebug });
 }
