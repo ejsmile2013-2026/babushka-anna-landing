@@ -1,4 +1,6 @@
-export default async function handler(req, res) {
+const { google } = require('googleapis');
+
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   if (req.method !== 'POST') return res.status(405).end();
 
@@ -9,6 +11,27 @@ export default async function handler(req, res) {
   const adminChatId = process.env.ADMIN_CHAT_ID;
   const resendKey   = process.env.RESEND_API_KEY;
   const isEmail     = lang !== 'ru';
+  const timestamp   = new Date().toISOString();
+
+  // Save to Google Sheets
+  try {
+    const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+    const auth = new google.auth.GoogleAuth({
+      credentials,
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+    const sheets = google.sheets({ version: 'v4', auth });
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.GOOGLE_SHEETS_ID,
+      range: 'Лиды!A:E',
+      valueInputOption: 'USER_ENTERED',
+      requestBody: {
+        values: [[timestamp, contact, lang || 'ru', symptom || '', isEmail ? 'email' : 'telegram']],
+      },
+    });
+  } catch (err) {
+    console.error('Sheets error:', err.message);
+  }
 
   // Notify admin via Telegram
   if (botToken && adminChatId) {
@@ -44,4 +67,4 @@ export default async function handler(req, res) {
   }
 
   res.status(200).json({ ok: true });
-}
+};

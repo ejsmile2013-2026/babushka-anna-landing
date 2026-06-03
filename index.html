@@ -44,7 +44,7 @@ header {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
-.logo { font-size: 20px; font-weight: bold; color: #B0892D; text-decoration: none; }
+.logo { font-size: 20px; font-weight: bold; color: #9b3a10; text-decoration: none; }
 .lang-switcher { display: flex; gap: 6px; }
 .lang-btn {
   background: transparent;
@@ -53,8 +53,8 @@ header {
   padding: 6px 13px; font-size: 14px;
   cursor: pointer; transition: all 0.2s; font-family: inherit;
 }
-.lang-btn:hover { border-color: #B0892D; color: #B0892D; background: rgba(176,137,45,0.1); }
-.lang-btn.active { background: rgba(176,137,45,0.2); border-color: #B0892D; color: #B0892D; font-weight: bold; }
+.lang-btn:hover { border-color: #9b3a10; color: #9b3a10; background: rgba(155,58,16,0.1); }
+.lang-btn.active { background: rgba(155,58,16,0.15); border-color: #9b3a10; color: #9b3a10; font-weight: bold; }
 
 /* ── HERO ── */
 .hero {
@@ -66,7 +66,7 @@ header {
   position: absolute !important; top:0; left:0;
   width:100%; height:100%; object-fit:cover; z-index:1;
 }
-.hero-overlay { position: absolute !important; inset:0; background: rgba(5,12,5,0.68); z-index:2; }
+.hero-overlay { position: absolute !important; inset:0; background: rgba(5,12,5,0.38); z-index:2; }
 .hero-photo-wrap, .hero h1, .hero-counter,
 .hero-sub, .hero-tagline, .hero .btn-primary, .hero-trust {
   position: relative; z-index: 3;
@@ -100,14 +100,14 @@ header {
 }
 .hero-counter {
   display:inline-block; margin:0 0 18px;
-  background: rgba(201,162,39,0.18);
-  border: 1px solid rgba(201,162,39,0.5);
+  background: rgba(155,58,16,0.22);
+  border: 1px solid rgba(155,58,16,0.45);
   border-radius: 50px; padding: 8px 20px;
   font-size: 15px; color: #f0e8d5; font-weight:bold;
 }
 .hero-sub {
-  font-size: clamp(15px,3vw,19px); color:#B0892D;
-  margin-bottom:8px; text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+  font-size: clamp(15px,3vw,19px); color:#f0e8d5;
+  margin-bottom:8px; text-shadow: 0 1px 10px rgba(0,0,0,0.7);
 }
 .hero-tagline {
   font-size: clamp(17px,3.5vw,22px); color:#f0e8cc;
@@ -115,16 +115,16 @@ header {
   text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 .btn-primary {
-  display:inline-block; background:#B0892D; color:#fff;
+  display:inline-block; background:#9b3a10; color:#fff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.25);
   font-family:inherit; font-size:20px; font-weight:bold;
   padding:18px 40px; border-radius:var(--r);
-  border: 2px solid var(--gold-h); cursor:pointer;
+  border: 2px solid #7d2e0c; cursor:pointer;
   text-decoration:none;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 4px 20px rgba(201,162,39,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+  box-shadow: 0 4px 20px rgba(155,58,16,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
 }
-.btn-primary:hover { background:#956b22; color:#fff; transform:translateY(-2px); box-shadow:0 6px 24px rgba(149,107,34,0.5); }
+.btn-primary:hover { background:#7d2e0c; color:#fff; transform:translateY(-2px); box-shadow:0 6px 24px rgba(155,58,16,0.55); }
 .hero-trust { margin-top:48px; display:flex; justify-content:center; flex-wrap:wrap; gap:12px; }
 .trust-badge {
   display:inline-block;
@@ -182,11 +182,11 @@ header {
 }
 .how-step { text-align:center; padding:0 16px; }
 .how-step-num {
-  width:54px; height:54px; background:var(--accent); color:#fff;
+  width:54px; height:54px; background:#c04a18; color:#fff;
   border-radius:50%; font-size:22px; font-weight:bold;
   display:flex; align-items:center; justify-content:center;
   margin: 0 auto 16px; position:relative; z-index:1;
-  box-shadow: 0 4px 16px rgba(155,58,16,0.3);
+  box-shadow: 0 4px 16px rgba(155,58,16,0.25);
 }
 .how-step-icon { font-size:36px; margin-bottom:10px; }
 .how-step h3 { font-size:19px; margin-bottom:8px; }
@@ -194,7 +194,7 @@ header {
 
 /* ── КВИЗ ── */
 .quiz-section {
-  background: url('quiz-bg.png') center center / cover no-repeat;
+  background: url('quiz-bg.png') center top / cover no-repeat fixed;
   padding:64px 0; position:relative;
 }
 .quiz-wrap { max-width:600px; margin:0 auto; padding:0 20px; }
@@ -326,12 +326,12 @@ header {
 .section-sub   { text-align:center; color:var(--muted); font-size:16px; margin-bottom:48px; }
 .cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .card {
-  background:#f8f6f4; border:2px solid #d1cbc4;
+  background:#fdf6ee; border:1px solid rgba(155,58,16,0.35);
   border-radius:var(--r); padding:28px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.08);
-  transition:all 0.3s ease;
+  box-shadow:0 6px 20px rgba(155,58,16,0.10), 0 2px 6px rgba(0,0,0,0.06);
+  transition:all 0.25s ease;
 }
-.card:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 12px 32px rgba(90,60,20,0.15); }
+.card:hover { border-color:#9b3a10; transform:translateY(-6px); box-shadow:0 16px 36px rgba(155,58,16,0.18), 0 4px 10px rgba(0,0,0,0.08); }
 .card-quote { font-size:16px; line-height:1.75; color:var(--text); margin-bottom:20px; font-style:italic; }
 .card-quote::before { content:'«'; color:var(--accent); font-size:22px; margin-right:2px; }
 .card-quote::after  { content:'»'; color:var(--accent); font-size:22px; margin-left:2px; }
@@ -344,23 +344,33 @@ header {
 .benefits-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:48px; }
 .benefit-item {
   display:flex; gap:20px; align-items:flex-start;
-  padding:24px; background:var(--bg3);
-  border:1px solid rgba(201,162,39,0.3); border-radius:var(--r);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  padding:24px; background:#fdf6ee;
+  border:1px solid rgba(155,58,16,0.35); border-radius:var(--r);
+  box-shadow:0 6px 20px rgba(155,58,16,0.10), 0 2px 6px rgba(0,0,0,0.06);
+  transition: all 0.25s ease;
 }
-.benefit-item:hover { border-color:var(--gold); box-shadow:0 4px 16px rgba(90,60,20,0.1); }
+.benefit-item:hover { border-color:#9b3a10; transform:translateY(-6px); box-shadow:0 16px 36px rgba(155,58,16,0.18), 0 4px 10px rgba(0,0,0,0.08); }
 .benefit-icon { font-size:32px; flex-shrink:0; }
 .benefit-content h3 { font-size:17px; margin-bottom:6px; }
 .benefit-content p  { font-size:15px; color:var(--muted); line-height:1.6; }
 .benefits-cta { text-align:center; margin-top:48px; }
+.benefits-cta .btn-primary {
+  background: #c04a18;
+  border-color: #9b3a10;
+  box-shadow: 0 4px 20px rgba(155,58,16,0.28), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.benefits-cta .btn-primary:hover { background: #9b3a10; box-shadow:0 6px 24px rgba(155,58,16,0.45); }
 
 /* ── FAQ ── */
 .faq-section { padding:80px 20px; background:var(--bg); }
 .faq-list { max-width:680px; margin:48px auto 0; }
 .faq-item {
-  border:1px solid rgba(201,162,39,0.35); border-radius:var(--r);
+  border:1px solid rgba(155,58,16,0.3); border-radius:var(--r);
   margin-bottom:12px; overflow:hidden; background:var(--bg3);
+  box-shadow:0 6px 20px rgba(155,58,16,0.10), 0 2px 6px rgba(0,0,0,0.06);
+  transition: all 0.25s ease;
 }
+.faq-item:hover { border-color:#9b3a10; transform:translateY(-3px); box-shadow:0 12px 30px rgba(155,58,16,0.16), 0 4px 10px rgba(0,0,0,0.07); }
 .faq-q {
   width:100%; text-align:left; padding:20px 24px;
   background:transparent; border:none;
@@ -385,26 +395,34 @@ header {
 /* ── ФИНАЛЬНЫЙ CTA ── */
 .cta-final {
   padding:96px 20px;
-  background-image: url('cta-bg.png');
-  background-size:cover; background-position:center 40%;
+  background-color: #e8e0cc;
+  background-image: url('quiz-bg.png');
+  background-size:cover; background-position:center top;
+  background-attachment: fixed;
   text-align:center; position:relative;
 }
 .cta-final::before {
   content:''; position:absolute; inset:0;
-  background: rgba(15,8,4,0.62);
+  background: rgba(15,8,4,0.10);
 }
 .cta-final > * { position:relative; z-index:1; }
 .cta-leaf { font-size:40px; display:block; margin-bottom:16px; }
 .cta-final h2 {
-  font-size:clamp(28px,5vw,44px); color:#f0e8d5;
-  margin-bottom:12px; text-shadow:0 2px 12px rgba(0,0,0,0.4);
+  font-size:clamp(28px,5vw,44px); color:#1a2e12;
+  margin-bottom:12px; text-shadow: none;
 }
 .cta-final > p {
-  font-size:18px; color:#e0d8c8; margin-bottom:40px;
-  text-shadow:0 1px 6px rgba(0,0,0,0.3);
+  font-size:clamp(18px,3vw,22px); color:#3a4e2a; margin-bottom:40px;
+  text-shadow: none;
 }
-.cta-group-note { margin-top:20px; font-size:15px; color:rgba(224,216,200,0.8); }
-.cta-group-note a { color:#f0e8d5; text-decoration:underline; }
+.cta-final .btn-primary {
+  background: #9b3a10;
+  border-color: #7d2e0c;
+  box-shadow: 0 4px 20px rgba(155,58,16,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.cta-final .btn-primary:hover { background: #7d2e0c; box-shadow:0 6px 24px rgba(155,58,16,0.55); }
+.cta-group-note { margin-top:20px; font-size:13px; color:#3a4e2a; text-shadow:none; }
+.cta-group-note a { color:#9b3a10; text-decoration:underline; text-shadow:none; }
 .cta-group-note a:hover { color:var(--gold); }
 
 /* ── ПОДВАЛ ── */
@@ -421,7 +439,7 @@ footer::before {
 }
 footer > * { position:relative; z-index:1; }
 footer a { color:#f0e8d8; text-decoration:none; font-weight:bold; transition:color 0.2s; }
-footer a:hover { color:var(--gold); }
+footer a:hover { color:#c04a18; }
 .footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:24px; margin-bottom:16px; }
 .footer-legal { margin-top:14px; font-size:13px; color:#a09890; }
 .footer-legal a { color:#b8b0a5; font-weight:normal; font-size:13px; }
@@ -452,8 +470,8 @@ footer a:hover { color:var(--gold); }
   .benefits-grid { grid-template-columns:1fr; }
   .quiz-section { padding:48px 0; }
   .testimonials,.faq-section,.how-section,.story-section,.benefits-section { padding:56px 20px; }
-  .quiz-header h2 { color:#f0e8d5 !important; text-shadow:0 1px 6px rgba(0,0,0,0.5) !important; }
-  .quiz-header p  { color:#f0e8d5 !important; text-shadow:0 1px 4px rgba(0,0,0,0.4) !important; }
+  .quiz-section { background-attachment: scroll; }
+  .cta-final    { background-attachment: scroll; }
 }
 @media (max-width:480px) {
   body { font-size:17px; }
@@ -486,7 +504,7 @@ footer a:hover { color:var(--gold); }
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="babushka.png">
-    <source src="hero-video.mp4" type="video/mp4">
+    <source src="hero-video3.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-photo-wrap">
@@ -498,9 +516,9 @@ footer a:hover { color:var(--gold); }
   <p class="hero-tagline" data-i18n="heroTagline">«Природа знает лучше любого доктора, доченька»</p>
   <button class="btn-primary" onclick="scrollToQuiz()" data-i18n="heroBtn">Спросить бабушку</button>
   <div class="hero-trust">
-    <span class="trust-badge" data-i18n="badge1">🌿 Народные рецепты</span>
-    <span class="trust-badge" data-i18n="badge2">Бесплатно</span>
-    <span class="trust-badge" data-i18n="badge3">Ответ за 30 секунд</span>
+    <a class="trust-badge" href="https://babushka-anna.vercel.app" target="_blank" data-i18n="badge1">🌿 Народные рецепты</a>
+    <a class="trust-badge" href="#quiz" data-i18n="badge2">Бесплатно</a>
+    <a class="trust-badge" href="#quiz" data-i18n="badge3">Ответ за 30 секунд</a>
   </div>
 </section>
 
@@ -530,19 +548,16 @@ footer a:hover { color:var(--gold); }
     <div class="how-steps">
       <div class="how-step reveal d1">
         <div class="how-step-num">1</div>
-        <div class="how-step-icon">💬</div>
         <h3 data-i18n="how1Title">Расскажи что беспокоит</h3>
         <p data-i18n="how1Text">Ответь на 4 вопроса — бабушка слушает без осуждения и без спешки</p>
       </div>
       <div class="how-step reveal d2">
         <div class="how-step-num">2</div>
-        <div class="how-step-icon">🌿</div>
         <h3 data-i18n="how2Title">Получи рецепт</h3>
         <p data-i18n="how2Text">Через 30 секунд — персональный народный рецепт с травами и способом приготовления</p>
       </div>
       <div class="how-step reveal d3">
         <div class="how-step-num">3</div>
-        <div class="how-step-icon">💛</div>
         <h3 data-i18n="how3Title">Продолжай с бабушкой</h3>
         <p data-i18n="how3Text">Напиши в Telegram — задавай вопросы и получай новые рецепты когда нужно</p>
       </div>
@@ -754,12 +769,11 @@ footer a:hover { color:var(--gold); }
 
 <!-- ═══ ФИНАЛЬНЫЙ CTA ═══ -->
 <section class="cta-final">
-  <span class="cta-leaf">🌿</span>
   <h2 data-i18n="ctaTitle">Бабушка ждёт тебя</h2>
   <p data-i18n="ctaSub">Задай свой вопрос — получи народный рецепт прямо сейчас</p>
   <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-primary" data-i18n="ctaBtn">Написать бабушке в Telegram</a>
   <p class="cta-group-note">
-    <span data-i18n="ctaGroupNote">Или вступи в </span><a href="https://t.me/+u39XPrezFspmM2Ey" target="_blank" data-i18n="ctaGroupLink">нашу группу</a>
+    <span data-i18n="ctaGroupNote">Или вступи в </span><a href="https://t.me/aibabushka40" target="_blank" data-i18n="ctaGroupLink">нашу группу</a>
   </p>
 </section>
 
@@ -768,7 +782,7 @@ footer a:hover { color:var(--gold); }
   <div class="footer-links">
     <a href="https://babushka-anna.vercel.app" target="_blank" data-i18n="footerHandbook">Справочник рецептов</a>
     <a href="https://t.me/babushka_anna_heal_bot" target="_blank">Telegram-бот</a>
-    <a href="https://t.me/+u39XPrezFspmM2Ey" target="_blank" data-i18n="footerGroup">Наша группа</a>
+    <a href="https://t.me/aibabushka40" target="_blank" data-i18n="footerGroup">Наша группа</a>
   </div>
   <div class="footer-legal">
     <a href="privacy.html">Политика конфиденциальности</a>
