@@ -6,679 +6,440 @@
 <title>Бабушка Анна — Народный целитель</title>
 <meta name="description" content="Получи персональный народный рецепт от Бабушки Анны — 93 года мудрости из Туркменистана">
 <style>
-/* ── ПЕРГАМЕНТНЫЙ СТИЛЬ — старая книга трав ── */
+/* ── ПЕРЕМЕННЫЕ ── */
 :root {
-  --bg:       #f5edd5;
-  --bg2:      #faf4e4;
-  --bg3:      #fff8ec;
-  --text:     #1a2e12;
-  --muted:    #5a6e45;
-  --accent:   #9b3a10;
-  --accent-h: #7d2e0c;
-  --glow:     rgba(155,58,16,0.15);
-  --border:   rgba(90,60,20,0.25);
-  --r:        14px;
-  --herb:        #2d6235;
-  --herb-h:      #1e4a27;
-  --herb-light:  rgba(45,98,53,0.1);
-  --herb-glow:   rgba(45,98,53,0.2);
-  --herb-border: rgba(45,98,53,0.45);
-  --parch:       #f5edd5;
-  --parch-dark:  #d9c89a;
-  --parch-border:#c9a227;
-  --parch-text:  #1a2e12;
-  --parch-muted: #4a5e38;
-  --parch-accent:#9b3a10;
-  --gold:        #c9a227;
-  --gold-h:      #a8841a;
-  --gold-light:  rgba(201,162,39,0.15);
+  --bg:         #f5edd5;
+  --bg2:        #faf4e4;
+  --bg3:        #fff8ec;
+  --text:       #1a2e12;
+  --muted:      #5a6e45;
+  --accent:     #9b3a10;
+  --accent-h:   #7d2e0c;
+  --border:     rgba(90,60,20,0.25);
+  --r:          14px;
+  --herb:       #2d6235;
+  --gold:       #c9a227;
+  --gold-h:     #a8841a;
+  --gold-light: rgba(201,162,39,0.15);
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia,'Times New Roman',serif;
   font-size: 18px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Шапка ── */
+/* ── ШАПКА ── */
 header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: sticky; top: 0; z-index: 100;
   background: rgba(231,227,221,0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(176,137,45,0.25);
   padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #B0892D;
-  text-decoration: none;
-  letter-spacing: 0.01em;
-}
+.logo { font-size: 20px; font-weight: bold; color: #B0892D; text-decoration: none; }
 .lang-switcher { display: flex; gap: 6px; }
 .lang-btn {
   background: transparent;
   border: 1.5px solid rgba(176,137,45,0.6);
-  color: #6b6560;
-  border-radius: 8px;
-  padding: 6px 13px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: inherit;
+  color: #6b6560; border-radius: 8px;
+  padding: 6px 13px; font-size: 14px;
+  cursor: pointer; transition: all 0.2s; font-family: inherit;
 }
 .lang-btn:hover { border-color: #B0892D; color: #B0892D; background: rgba(176,137,45,0.1); }
-.lang-btn.active {
-  background: rgba(176,137,45,0.2);
-  border-color: #B0892D;
-  color: #B0892D;
-  font-weight: bold;
-}
+.lang-btn.active { background: rgba(176,137,45,0.2); border-color: #B0892D; color: #B0892D; font-weight: bold; }
 
-/* ── Hero ── */
+/* ── HERO ── */
 .hero {
-  text-align: center;
-  padding: 80px 20px 64px;
-  position: relative;
-  overflow: hidden;
-  background: #111a0e;
-  min-height: 520px;
+  text-align: center; padding: 80px 20px 64px;
+  position: relative; overflow: hidden;
+  background: #111a0e; min-height: 520px;
 }
-/* Видео-фон — строго абсолютный */
 .hero-video {
-  position: absolute !important;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  position: absolute !important; top:0; left:0;
+  width:100%; height:100%; object-fit:cover; z-index:1;
 }
-/* Тёмный слой поверх видео */
-.hero-overlay {
-  position: absolute !important;
-  inset: 0;
-  background: rgba(5,12,5,0.68);
-  z-index: 2;
+.hero-overlay { position: absolute !important; inset:0; background: rgba(5,12,5,0.68); z-index:2; }
+.hero-photo-wrap, .hero h1, .hero-counter,
+.hero-sub, .hero-tagline, .hero .btn-primary, .hero-trust {
+  position: relative; z-index: 3;
 }
-/* Весь видимый контент hero — поверх overlay */
-.hero-photo-wrap,
-.hero h1,
-.hero-sub,
-.hero-tagline,
-.hero .btn-primary,
-.hero-trust {
-  position: relative;
-  z-index: 3;
-}
-
-/* Плавающие травы — отключены */
-.herbs-float { display: none; }
 .hero-photo-wrap {
-  margin: 0 auto 28px;
-  width: 160px;
-  height: 160px;
-  position: relative;
-  animation: float 4s ease-in-out infinite;
+  margin: 0 auto 28px; width:160px; height:160px;
+  position: relative; animation: float 4s ease-in-out infinite;
 }
 .hero-photo-wrap::before {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
+  content:''; position:absolute; inset:-6px; border-radius:50%;
   background: conic-gradient(var(--accent), var(--accent-h), var(--accent));
-  animation: spin 8s linear infinite;
-  z-index: 0;
+  animation: spin 8s linear infinite; z-index:0;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 .hero-photo-wrap::after {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: #111a0e;
-  z-index: 1;
+  content:''; position:absolute; inset:-3px;
+  border-radius:50%; background:#111a0e; z-index:1;
 }
 .hero-photo {
-  position: relative;
-  z-index: 10;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+  position:relative; z-index:10; width:160px; height:160px;
+  border-radius:50%; overflow:hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
   filter: contrast(1.05) saturate(1.1);
 }
-.hero-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 15%;
-  display: block;
-}
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
+.hero-photo img { width:100%; height:100%; object-fit:cover; object-position:center 15%; display:block; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 .hero h1 {
-  font-size: clamp(36px, 7vw, 60px);
-  font-weight: bold;
-  color: #f0e8d5;
-  line-height: 1.15;
-  margin-bottom: 12px;
+  font-size: clamp(36px,7vw,60px); font-weight:bold;
+  color:#f0e8d5; line-height:1.15; margin-bottom:12px;
   text-shadow: 0 2px 12px rgba(0,0,0,0.5);
 }
+.hero-counter {
+  display:inline-block; margin:0 0 18px;
+  background: rgba(201,162,39,0.18);
+  border: 1px solid rgba(201,162,39,0.5);
+  border-radius: 50px; padding: 8px 20px;
+  font-size: 15px; color: #f0e8d5; font-weight:bold;
+}
 .hero-sub {
-  font-size: clamp(15px, 3vw, 19px);
-  color: #B0892D;
-  margin-bottom: 8px;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+  font-size: clamp(15px,3vw,19px); color:#B0892D;
+  margin-bottom:8px; text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 .hero-tagline {
-  font-size: clamp(17px, 3.5vw, 22px);
-  color: #f0e8cc;
-  margin-bottom: 28px;
-  font-style: italic;
+  font-size: clamp(17px,3.5vw,22px); color:#f0e8cc;
+  margin-bottom:28px; font-style:italic;
   text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 .btn-primary {
-  display: inline-block;
-  background: #B0892D;
-  color: #ffffff;
+  display:inline-block; background:#B0892D; color:#fff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.25);
-  font-family: inherit;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 18px 40px;
-  border-radius: var(--r);
-  border: 2px solid var(--gold-h);
-  cursor: pointer;
-  text-decoration: none;
+  font-family:inherit; font-size:20px; font-weight:bold;
+  padding:18px 40px; border-radius:var(--r);
+  border: 2px solid var(--gold-h); cursor:pointer;
+  text-decoration:none;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
   box-shadow: 0 4px 20px rgba(201,162,39,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
 }
-.btn-primary:hover { background: #956b22; color: #ffffff; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(149,107,34,0.5); }
-@keyframes pulse {
-  0%,100% { box-shadow: 0 4px 20px rgba(201,162,39,0.4); }
-  50%      { box-shadow: 0 4px 36px rgba(201,162,39,0.6); }
-}
-.hero-trust {
-  margin-top: 48px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+.btn-primary:hover { background:#956b22; color:#fff; transform:translateY(-2px); box-shadow:0 6px 24px rgba(149,107,34,0.5); }
+.hero-trust { margin-top:48px; display:flex; justify-content:center; flex-wrap:wrap; gap:12px; }
 .trust-badge {
-  display: inline-block;
+  display:inline-block;
   background: rgba(248,246,244,0.15);
   border: 1.5px solid rgba(248,246,244,0.4);
-  border-radius: 50px;
-  padding: 10px 22px;
-  font-size: 15px;
-  font-weight: bold;
-  color: #f5edd5;
-  text-decoration: none;
-  cursor: pointer;
+  border-radius:50px; padding:10px 22px;
+  font-size:15px; font-weight:bold; color:#f5edd5;
+  text-decoration:none; cursor:pointer;
   transition: background 0.2s, transform 0.15s;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
 }
-.trust-badge:hover {
-  background: rgba(248,246,244,0.35);
-  transform: translateY(-2px);
-}
-.trust-badge:active {
-  background: rgba(248,246,244,0.5);
-  transform: translateY(0px) scale(0.97);
-}
+.trust-badge:hover { background: rgba(248,246,244,0.35); transform:translateY(-2px); }
 
-/* ── Квиз ── */
+/* ── ИСТОРИЯ ── */
+.story-section { padding: 80px 20px; background: var(--bg2); }
+.story-inner {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: 220px 1fr;
+  gap: 56px; align-items: center;
+}
+.story-photo-wrap { text-align:center; }
+.story-photo {
+  width:200px; height:200px; border-radius:50%; overflow:hidden;
+  border: 3px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(90,60,20,0.2);
+  margin: 0 auto 16px;
+}
+.story-photo img { width:100%; height:100%; object-fit:cover; object-position:center 15%; }
+.story-label {
+  font-size:13px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--accent); font-weight:bold; display:block; margin-bottom:10px;
+}
+.story-content h2 { font-size:clamp(24px,4vw,34px); margin-bottom:20px; }
+.story-content p { font-size:17px; line-height:1.8; margin-bottom:16px; }
+.story-quote {
+  margin-top:24px; padding:16px 24px;
+  border-left: 3px solid var(--gold);
+  background: rgba(201,162,39,0.08);
+  border-radius: 0 var(--r) var(--r) 0;
+}
+.story-quote p { font-style:italic; color:var(--accent); font-size:17px; margin:0; }
+
+/* ── КАК ЭТО РАБОТАЕТ ── */
+.how-section { padding: 80px 20px; background: var(--bg); }
+.how-steps {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:40px; margin-top:48px; position:relative;
+}
+.how-steps::before {
+  content:''; position:absolute; top:27px;
+  left: calc(16.7% + 8px); right: calc(16.7% + 8px);
+  height:2px;
+  background: linear-gradient(90deg, var(--gold), var(--accent));
+  opacity:0.25;
+}
+.how-step { text-align:center; padding:0 16px; }
+.how-step-num {
+  width:54px; height:54px; background:var(--accent); color:#fff;
+  border-radius:50%; font-size:22px; font-weight:bold;
+  display:flex; align-items:center; justify-content:center;
+  margin: 0 auto 16px; position:relative; z-index:1;
+  box-shadow: 0 4px 16px rgba(155,58,16,0.3);
+}
+.how-step-icon { font-size:36px; margin-bottom:10px; }
+.how-step h3 { font-size:19px; margin-bottom:8px; }
+.how-step p  { font-size:15px; color:var(--muted); line-height:1.65; }
+
+/* ── КВИЗ ── */
 .quiz-section {
   background: url('quiz-bg.png') center center / cover no-repeat;
-  border-top: none;
-  border-bottom: none;
-  padding: 64px 0;
-  position: relative;
+  padding:64px 0; position:relative;
 }
-.quiz-wrap { max-width: 600px; margin: 0 auto; padding: 0 20px; }
-.quiz-header { text-align: center; margin-bottom: 40px; }
-.quiz-header h2 {
-  font-size: clamp(22px, 4vw, 30px);
-  margin-bottom: 8px;
-  color: #2c2824;
-  text-shadow: none;
-}
-.quiz-header p  {
-  color: #3a3530;
-  font-size: 16px;
-  text-shadow: none;
-}
+.quiz-wrap { max-width:600px; margin:0 auto; padding:0 20px; }
+.quiz-header { text-align:center; margin-bottom:40px; }
+.quiz-header h2 { font-size:clamp(22px,4vw,30px); margin-bottom:8px; color:#2c2824; }
+.quiz-header p  { color:#3a3530; font-size:16px; }
 .progress-bar {
-  background: rgba(240,234,216,0.5);
-  border-radius: 50px;
-  height: 2px;
-  width: 80px;
-  margin: 0 auto 40px;
-  overflow: hidden;
+  background: rgba(240,234,216,0.5); border-radius:50px;
+  height:2px; width:80px; margin:0 auto 40px; overflow:hidden;
 }
-.progress-fill { background: var(--gold) !important; }
 .progress-fill {
-  height: 100%;
-  background: var(--accent);
-  border-radius: 50px;
-  transition: width 0.4s ease;
-  width: 0%;
+  height:100%; border-radius:50px;
+  background: linear-gradient(90deg, var(--herb), var(--gold));
+  transition: width 0.4s ease; width:0%;
 }
-.quiz-step { display: none; animation: fadeIn 0.3s ease; }
-.quiz-step.active { display: block; }
-@keyframes fadeIn {
-  from { opacity:0; transform:translateY(10px); }
-  to   { opacity:1; transform:translateY(0); }
-}
+.quiz-step { display:none; animation: fadeIn 0.3s ease; }
+.quiz-step.active { display:block; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
 .grandma-says {
-  background: #ddd9d5;
-  border-left: 3px solid #9a9590;
-  border-radius: 0 var(--r) var(--r) 0;
-  padding: 14px 18px;
-  margin-bottom: 20px;
-  font-style: italic;
-  color: var(--parch-text);
-  font-size: 16px;
+  background:#ddd9d5; border-left:3px solid #9a9590;
+  border-radius:0 var(--r) var(--r) 0;
+  padding:14px 18px; margin-bottom:20px;
+  font-style:italic; color:var(--text); font-size:16px;
 }
-.quiz-q {
-  font-size: clamp(20px, 4vw, 26px);
-  font-weight: bold;
-  margin-bottom: 24px;
-  color: #1a2e12;
-  text-shadow: none;
-}
-.quiz-options { display: flex; flex-direction: column; gap: 12px; }
+.quiz-q { font-size:clamp(20px,4vw,26px); font-weight:bold; margin-bottom:24px; color:#1a2e12; }
+.quiz-options { display:flex; flex-direction:column; gap:12px; }
 .quiz-opt {
-  background: #f8f6f4;
-  border: 2px solid #d1cbc4;
-  border-radius: var(--r);
-  padding: 16px 20px;
-  font-family: inherit;
-  font-size: 17px;
-  color: var(--parch-text);
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.2s;
-  min-height: 56px;
-  box-shadow: 0 2px 8px rgba(90,60,20,0.1);
+  background:#f8f6f4; border:2px solid #d1cbc4;
+  border-radius:var(--r); padding:16px 20px;
+  font-family:inherit; font-size:17px; color:var(--text);
+  cursor:pointer; text-align:left; transition:all 0.2s;
+  min-height:56px; box-shadow:0 2px 8px rgba(90,60,20,0.1);
 }
 .quiz-opt:hover {
-  border-color: #9a9590;
-  background: rgba(154,149,144,0.1);
-  transform: translateX(6px);
-  box-shadow: -3px 0 0 #9a9590;
+  border-color:var(--accent); background:rgba(155,58,16,0.06);
+  transform:translateX(6px); box-shadow:-3px 0 0 var(--accent);
 }
-.quiz-opt:focus  { outline: none; border-color: #9a9590; }
-.quiz-opt:active {
-  transform: translateX(3px) scale(0.99);
-}
-
-/* Загрузка */
-.quiz-loading { text-align: center; padding: 48px 0; display: none; }
-.quiz-loading.active { display: block; }
-.loading-emoji { font-size: 56px; animation: think 1.5s ease-in-out infinite; }
-@keyframes think {
-  0%,100% { transform: rotate(-5deg); }
-  50%      { transform: rotate(5deg); }
-}
-.loading-text { color: var(--muted); margin-top: 16px; font-size: 17px; }
+.quiz-opt:active { transform:translateX(3px) scale(0.99); }
+.quiz-loading { text-align:center; padding:48px 0; display:none; }
+.quiz-loading.active { display:block; }
+.loading-emoji { font-size:56px; animation:think 1.5s ease-in-out infinite; }
+@keyframes think { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)} }
+.loading-text { color:#3a3530; margin-top:16px; font-size:17px; }
 .loading-dots::after {
-  content: '';
-  animation: dots 1.5s steps(4, end) infinite;
+  content:''; animation: dots 1.5s steps(4,end) infinite;
 }
-@keyframes dots {
-  0%  { content: ''; }
-  25% { content: '.'; }
-  50% { content: '..'; }
-  75% { content: '...'; }
-}
+@keyframes dots { 0%{content:''} 25%{content:'.'} 50%{content:'..'} 75%{content:'...'} }
 
-/* Результат */
-.quiz-result { display: none; }
-.quiz-result.active { display: block; }
-.result-letter {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 28px;
-  margin-bottom: 24px;
+/* Карточка рецепта */
+.quiz-result { display:none; }
+.quiz-result.active { display:block; }
+.recipe-card {
+  background: linear-gradient(145deg,#fffdf6,#fdf5e0);
+  border:2px solid var(--gold); border-radius:18px;
+  padding:32px; margin-bottom:24px; position:relative;
+  box-shadow: 0 8px 32px rgba(90,60,20,0.15);
 }
-.result-letter::before {
-  content: '💌';
-  font-size: 28px;
-  display: block;
-  margin-bottom: 12px;
+.recipe-card::after {
+  content:''; position:absolute; inset:7px;
+  border:1px solid rgba(201,162,39,0.25);
+  border-radius:13px; pointer-events:none;
 }
-.result-text {
-  font-size: 17px;
-  line-height: 1.85;
-  white-space: pre-wrap;
-  color: var(--text);
+.recipe-card-header {
+  text-align:center; margin-bottom:20px; padding-bottom:16px;
+  border-bottom:1px solid rgba(201,162,39,0.25);
 }
-.result-actions { display: flex; flex-direction: column; gap: 12px; }
-.btn-outline {
-  display: inline-block;
-  background: transparent;
-  border: 2px solid #B0892D;
-  border-radius: var(--r);
-  color: #f0e8d8;
-  font-family: inherit;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 18px 40px;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
+.recipe-card-emoji { font-size:32px; display:block; margin-bottom:6px; }
+.recipe-card-title {
+  font-size:15px; color:var(--accent); font-weight:bold;
+  letter-spacing:0.05em; text-transform:uppercase;
 }
-.btn-outline:hover {
-  background: #B0892D;
-  color: #ffffff;
-  transform: translateY(-2px);
+.recipe-text { font-size:16px; line-height:1.9; white-space:pre-wrap; color:var(--text); }
+.result-actions { display:flex; flex-direction:column; gap:12px; margin-top:4px; }
+.btn-tg {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  background:#2AABEE; color:#fff;
+  font-family:inherit; font-size:18px; font-weight:bold;
+  padding:16px 32px; border-radius:var(--r);
+  border:none; cursor:pointer; text-decoration:none;
+  transition: background 0.2s, transform 0.15s; text-align:center;
 }
+.btn-tg:hover { background:#229ED9; transform:translateY(-2px); }
 .btn-secondary {
-  display: block;
-  background: transparent;
-  border: 2px solid #B0892D;
-  border-radius: var(--r);
-  padding: 16px 24px;
-  font-family: inherit;
-  font-size: 17px;
-  color: #B0892D;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s;
-  font-weight: bold;
+  display:block; background:transparent;
+  border:2px solid var(--gold); border-radius:var(--r);
+  padding:14px 24px; font-family:inherit; font-size:16px;
+  color:var(--accent); cursor:pointer; text-align:center;
+  text-decoration:none; transition:all 0.2s; font-weight:bold;
 }
-.btn-secondary:hover { background: #B0892D; color: #ffffff; border-color: #B0892D; }
+.btn-secondary:hover { background:var(--gold-light); border-color:var(--gold-h); }
 .btn-restart {
-  background: transparent;
-  border: none;
-  color: #1a2e12;
-  font-family: inherit;
-  font-size: 15px;
-  cursor: pointer;
-  text-align: center;
-  padding: 12px;
-  text-decoration: underline;
-  display: block;
-  width: 100%;
-  margin-top: 4px;
+  background:transparent; border:none; color:var(--muted);
+  font-family:inherit; font-size:15px; cursor:pointer;
+  text-align:center; padding:12px; text-decoration:underline;
+  display:block; width:100%; margin-top:4px;
 }
 
-/* ── Отзывы ── */
-.testimonials { padding: 64px 0; background: #e7e3dd; }
-.section-title {
-  text-align: center;
-  font-size: clamp(24px, 4vw, 32px);
-  margin-bottom: 8px;
-}
-.section-sub {
-  text-align: center;
-  color: #6b6560;
-  font-size: 16px;
-  margin-bottom: 40px;
-}
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-@media (max-width: 720px) { .cards-grid { grid-template-columns: 1fr; } }
-@media (min-width: 721px) and (max-width: 900px) { .cards-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
+/* ── ОТЗЫВЫ ── */
+.testimonials { padding:80px 0; background:#ede8de; }
+.section-title { text-align:center; font-size:clamp(24px,4vw,34px); margin-bottom:8px; }
+.section-sub   { text-align:center; color:var(--muted); font-size:16px; margin-bottom:48px; }
+.cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .card {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 24px;
-  transition: border-color 0.2s;
+  background:#f8f6f4; border:2px solid #d1cbc4;
+  border-radius:var(--r); padding:28px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  transition:all 0.3s ease;
 }
-.card:hover { border-color: rgba(249,115,22,0.35); }
-.card-quote {
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--text);
-  margin-bottom: 20px;
-  font-style: italic;
-}
-.card-quote::before { content: '«'; color: var(--accent); font-size: 22px; margin-right: 2px; }
-.card-quote::after  { content: '»'; color: var(--accent); font-size: 22px; margin-left: 2px; }
-.card-author { display: flex; align-items: center; gap: 12px; }
-.card-avatar { display: none; }
-.card-name { font-weight: bold; font-size: 16px; }
-.card-meta { font-size: 14px; color: var(--muted); }
-.stars { color: var(--accent); font-size: 14px; margin-top: 3px; }
+.card:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 12px 32px rgba(90,60,20,0.15); }
+.card-quote { font-size:16px; line-height:1.75; color:var(--text); margin-bottom:20px; font-style:italic; }
+.card-quote::before { content:'«'; color:var(--accent); font-size:22px; margin-right:2px; }
+.card-quote::after  { content:'»'; color:var(--accent); font-size:22px; margin-left:2px; }
+.card-name { font-weight:bold; font-size:16px; }
+.card-meta { font-size:14px; color:var(--muted); }
+.stars { color:#B0892D; font-size:14px; margin-top:3px; }
 
-/* ── Доверие ── */
-.trust-section {
-  background: #ddd9d5;
-  border-top: none;
-  padding: 64px 0;
+/* ── ЧТО ТЫ ПОЛУЧИШЬ ── */
+.benefits-section { padding:80px 20px; background:var(--bg2); }
+.benefits-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:48px; }
+.benefit-item {
+  display:flex; gap:20px; align-items:flex-start;
+  padding:24px; background:var(--bg3);
+  border:1px solid rgba(201,162,39,0.3); border-radius:var(--r);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 40px;
-}
-@media (max-width: 720px) { .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
-@media (max-width: 480px) { .trust-grid { grid-template-columns: 1fr; } }
-.trust-item { text-align: center; padding: 20px 16px; }
-.trust-icon { font-size: 40px; margin-bottom: 12px; }
-.trust-item h3 { font-size: 18px; margin-bottom: 6px; }
-.trust-item p  { font-size: 15px; color: var(--muted); }
+.benefit-item:hover { border-color:var(--gold); box-shadow:0 4px 16px rgba(90,60,20,0.1); }
+.benefit-icon { font-size:32px; flex-shrink:0; }
+.benefit-content h3 { font-size:17px; margin-bottom:6px; }
+.benefit-content p  { font-size:15px; color:var(--muted); line-height:1.6; }
+.benefits-cta { text-align:center; margin-top:48px; }
 
-/* ── Финальный CTA ── */
-.cta-section {
-  padding: 72px 20px;
-  background-color: #ece5d5;
+/* ── FAQ ── */
+.faq-section { padding:80px 20px; background:var(--bg); }
+.faq-list { max-width:680px; margin:48px auto 0; }
+.faq-item {
+  border:1px solid rgba(201,162,39,0.35); border-radius:var(--r);
+  margin-bottom:12px; overflow:hidden; background:var(--bg3);
+}
+.faq-q {
+  width:100%; text-align:left; padding:20px 24px;
+  background:transparent; border:none;
+  font-family:inherit; font-size:17px; font-weight:bold;
+  color:var(--text); cursor:pointer;
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  transition:color 0.2s;
+}
+.faq-q:hover { color:var(--accent); }
+.faq-toggle {
+  font-size:22px; line-height:1; color:var(--gold); flex-shrink:0;
+  transition:transform 0.3s ease; font-style:normal; font-weight:normal;
+}
+.faq-item.open .faq-toggle { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.35s ease; padding:0 24px; }
+.faq-item.open .faq-a { max-height:300px; padding:0 24px 20px; }
+.faq-a p {
+  font-size:16px; color:var(--muted); line-height:1.7;
+  border-top:1px solid rgba(201,162,39,0.2); padding-top:16px;
+}
+
+/* ── ФИНАЛЬНЫЙ CTA ── */
+.cta-final {
+  padding:96px 20px;
   background-image: url('cta-bg.png');
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  border-top: none;
-  border-bottom: none;
-  position: relative;
+  background-size:cover; background-position:center 40%;
+  text-align:center; position:relative;
 }
-.cta-section > * { position: relative; z-index: 1; }
-.cta-section h2 { color: #1a2e12; }
-.cta-section h2 { font-size: clamp(24px, 4vw, 34px); margin-bottom: 12px; }
-.cta-section p  { color: #3a3530 !important; font-size: 18px; margin-bottom: 36px; text-shadow: none !important; }
-.cta-btns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
+.cta-final::before {
+  content:''; position:absolute; inset:0;
+  background: rgba(15,8,4,0.62);
 }
-.cta-btns .btn-primary:hover,
-.cta-btns .btn-outline:hover { transform: none; }
+.cta-final > * { position:relative; z-index:1; }
+.cta-leaf { font-size:40px; display:block; margin-bottom:16px; }
+.cta-final h2 {
+  font-size:clamp(28px,5vw,44px); color:#f0e8d5;
+  margin-bottom:12px; text-shadow:0 2px 12px rgba(0,0,0,0.4);
+}
+.cta-final > p {
+  font-size:18px; color:#e0d8c8; margin-bottom:40px;
+  text-shadow:0 1px 6px rgba(0,0,0,0.3);
+}
+.cta-group-note { margin-top:20px; font-size:15px; color:rgba(224,216,200,0.8); }
+.cta-group-note a { color:#f0e8d5; text-decoration:underline; }
+.cta-group-note a:hover { color:var(--gold); }
 
-/* ── Подвал ── */
+/* ── ПОДВАЛ ── */
 footer {
   background: url('futter_bg.png') center center / cover no-repeat;
-  border-top: none;
-  padding: 60px 20px;
-  text-align: center;
-  color: #e8e0d8;
-  font-size: 15px;
-  position: relative;
-  min-height: 220px;
+  padding:60px 20px; text-align:center;
+  color:#e8e0d8; font-size:15px;
+  position:relative; min-height:220px;
 }
 footer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(5,12,5,0.28) 0%,
-    rgba(5,12,5,0.55) 60%,
-    rgba(2,8,2,0.82) 100%
-  );
-  pointer-events: none;
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(to bottom,rgba(5,12,5,0.28) 0%,rgba(5,12,5,0.55) 60%,rgba(2,8,2,0.82) 100%);
+  pointer-events:none;
 }
-footer > * { position: relative; z-index: 1; }
-footer a { color: #f0e8d8; text-decoration: none; font-weight: bold; transition: all 0.2s; }
-footer a:hover {
-  color: #f0e8d8;
-  background: rgba(0,0,0,0.98);
-  padding: 3px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-}
-.footer-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-bottom: 16px;
-}
-.footer-legal {
-  margin-top: 14px;
-  font-size: 13px;
-  color: #a09890;
-}
-.footer-legal a { color: #b8b0a5; font-weight: normal; font-size: 13px; }
-.footer-legal a:hover { color: #B0892D; }
-.footer-sep { margin: 0 8px; color: #7a7268; }
+footer > * { position:relative; z-index:1; }
+footer a { color:#f0e8d8; text-decoration:none; font-weight:bold; transition:color 0.2s; }
+footer a:hover { color:var(--gold); }
+.footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:24px; margin-bottom:16px; }
+.footer-legal { margin-top:14px; font-size:13px; color:#a09890; }
+.footer-legal a { color:#b8b0a5; font-weight:normal; font-size:13px; }
+.footer-sep { margin:0 8px; color:#7a7268; }
 .disclaimer {
-  margin-top: 16px;
-  font-size: 13px;
-  color: #c8c0b5;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
+  margin-top:16px; font-size:13px; color:#c8c0b5;
+  max-width:520px; margin-left:auto; margin-right:auto; line-height:1.6;
 }
 
-/* Разделители — отключены */
-.herb-divider { display: none; }
+/* ── УТИЛИТЫ ── */
+.container      { max-width:720px;  margin:0 auto; padding:0 20px; }
+.container-wide { max-width:1000px; margin:0 auto; padding:0 20px; }
 
-/* ── Параллакс секции ── */
-.quiz-section,
-.cta-section,
-footer {
-  background-attachment: scroll;
-  will-change: background-position;
-  transition: background-position 0.05s linear;
-}
-/* ── Scroll reveal ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal.d1 { transition-delay: 0.1s; }
-.reveal.d2 { transition-delay: 0.2s; }
-.reveal.d3 { transition-delay: 0.3s; }
+/* ── SCROLL REVEAL ── */
+.reveal { opacity:0; transform:translateY(36px); transition:opacity 0.75s ease,transform 0.75s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal.d1 { transition-delay:0.1s; }
+.reveal.d2 { transition-delay:0.2s; }
+.reveal.d3 { transition-delay:0.3s; }
 
-/* ── Карточки — пергаментный стиль ── */
-.card {
-  position: relative;
-  overflow: hidden;
-  background: #f8f6f4 !important;
-  border-color: #d1cbc4 !important;
-  border-width: 2px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+/* ── АДАПТИВ ── */
+@media (max-width:720px) {
+  .story-inner { grid-template-columns:1fr; gap:32px; text-align:center; }
+  .story-quote { text-align:left; }
+  .how-steps { grid-template-columns:1fr; gap:32px; }
+  .how-steps::before { display:none; }
+  .cards-grid { grid-template-columns:1fr; }
+  .benefits-grid { grid-template-columns:1fr; }
+  .quiz-section { padding:48px 0; }
+  .testimonials,.faq-section,.how-section,.story-section,.benefits-section { padding:56px 20px; }
+  .quiz-header h2 { color:#f0e8d5 !important; text-shadow:0 1px 6px rgba(0,0,0,0.5) !important; }
+  .quiz-header p  { color:#f0e8d5 !important; text-shadow:0 1px 4px rgba(0,0,0,0.4) !important; }
 }
-.card .card-quote { color: var(--parch-text); font-size: 15px; }
-.card .card-quote::before,
-.card .card-quote::after { color: var(--parch-accent); }
-.card .card-name  { color: var(--parch-text); }
-.card .card-meta  { color: var(--parch-muted); }
-.card .stars      { color: #B0892D; }
-.card .card-avatar{
-  background: rgba(139,69,19,0.12);
-  border-color: var(--parch-accent);
-}
-.card:hover {
-  border-color: var(--gold) !important;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(90,60,20,0.2);
-  transition: all 0.3s ease;
-}
-
-/* ── Trust items ── */
-.trust-item {
-  border-radius: var(--r);
-  border: 2px solid #d1cbc4;
-  background: #f8f6f4;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-  cursor: default;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-}
-.trust-item h3 { color: var(--parch-text); }
-.trust-item p  { color: #6b6560; }
-.trust-item:hover {
-  border-color: var(--gold);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-}
-.trust-icon { transition: transform 0.4s ease; }
-.trust-item:hover .trust-icon { transform: scale(1.25) rotate(12deg); }
-
-
-/* ── Прогресс-бар — зелёный ── */
-.progress-fill { background: linear-gradient(90deg, var(--herb), var(--accent)); }
-
-/* ── Grandma-says — зелёная полоска ── */
-
-/* ── Результат ── */
-.result-letter {
-  background: #f8f6f4;
-  border: 2px solid #d1cbc4;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-.result-letter::before { content: '📜'; }
-.result-text { color: #1a2e12; font-size: 16px; }
-
-/* ── Утилиты ── */
-.container     { max-width: 720px;  margin: 0 auto; padding: 0 20px; }
-.container-wide{ max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-
-/* ── Адаптив ── */
-@media (max-width: 480px) {
-  body { font-size: 17px; }
-  .hero { padding: 48px 20px 40px; min-height: auto; }
-  .hero-photo-wrap { width: 130px; height: 130px; }
-  .hero-photo { width: 130px; height: 130px; }
-  .btn-primary { width: 100%; text-align: center; font-size: 18px; padding: 16px 24px; }
-  .btn-outline  { width: 100%; text-align: center; font-size: 17px; padding: 14px 20px; }
-  .quiz-opt { font-size: 16px; padding: 14px 16px; }
-  .result-letter { padding: 20px; }
-  .cta-btns { flex-direction: column; align-items: stretch; }
-  .cta-btns .btn-primary,
-  .cta-btns .btn-outline { text-align: center; }
-  .hero-trust { gap: 8px; }
-  .trust-badge { font-size: 13px; padding: 8px 14px; }
-  .footer-links { gap: 14px; font-size: 14px; }
-  .footer-legal { font-size: 12px; }
-}
-@media (max-width: 720px) {
-  .quiz-section { padding: 48px 0; }
-  .testimonials, .trust-section { padding: 48px 0; }
-  .cta-btns { flex-direction: column; align-items: center; gap: 12px; }
-  .cta-btns .btn-primary,
-  .cta-btns .btn-outline { width: 100%; max-width: 360px; text-align: center; }
-  .quiz-header h2 { color: #f0e8d5 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.5) !important; }
-  .quiz-header p  { color: #f0e8d5 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.4) !important; }
+@media (max-width:480px) {
+  body { font-size:17px; }
+  .hero { padding:48px 20px 40px; min-height:auto; }
+  .hero-photo-wrap { width:130px; height:130px; }
+  .hero-photo { width:130px; height:130px; }
+  .btn-primary { width:100%; text-align:center; font-size:18px; padding:16px 24px; }
+  .btn-tg { width:100%; font-size:17px; }
+  .quiz-opt { font-size:16px; padding:14px 16px; }
+  .recipe-card { padding:20px; }
+  .hero-trust { gap:8px; }
+  .trust-badge { font-size:13px; padding:8px 14px; }
+  .footer-links { gap:14px; font-size:14px; }
+  .benefit-item { flex-direction:column; gap:12px; }
 }
 </style>
 </head>
@@ -696,40 +457,70 @@ footer {
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
-  <!-- Видео-фон -->
   <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="babushka.png">
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
-
-  <!-- Плавающие травки в фоне (скрыты) -->
-  <div class="herbs-float" aria-hidden="true">
-    <span class="hp" style="left:5%;  --d:14s;--dl:0s;  --r:160deg">🌿</span>
-    <span class="hp" style="left:15%; --d:11s;--dl:2s;  --r:200deg">🍃</span>
-    <span class="hp" style="left:28%; --d:16s;--dl:0.5s;--r:120deg">🌱</span>
-    <span class="hp" style="left:42%; --d:13s;--dl:4s;  --r:280deg">🌿</span>
-    <span class="hp" style="left:58%; --d:15s;--dl:1s;  --r:90deg" >🍃</span>
-    <span class="hp" style="left:70%; --d:12s;--dl:3s;  --r:320deg">🌿</span>
-    <span class="hp" style="left:82%; --d:17s;--dl:1.5s;--r:180deg">🌱</span>
-    <span class="hp" style="left:92%; --d:10s;--dl:5s;  --r:240deg">🍃</span>
-  </div>
   <div class="hero-photo-wrap">
-    <div class="hero-photo">
-      <img src="babushka.png" alt="Бабушка Анна">
-    </div>
+    <div class="hero-photo"><img src="babushka.png" alt="Бабушка Анна"></div>
   </div>
   <h1 data-i18n="heroTitle">Бабушка Анна</h1>
-  <p class="hero-sub" data-i18n="heroSub">Народный целитель · Советский Туркменистан · 93 года мудрости</p>
+  <p class="hero-sub" data-i18n="heroSub">Народный целитель · Туркменистан · 93 года мудрости</p>
+  <div class="hero-counter" data-i18n="heroCounter">🌿 1 000+ персональных рецептов выдано</div>
   <p class="hero-tagline" data-i18n="heroTagline">«Природа знает лучше любого доктора, доченька»</p>
   <button class="btn-primary" onclick="scrollToQuiz()" data-i18n="heroBtn">Спросить бабушку</button>
   <div class="hero-trust">
-    <a href="https://babushka-anna.vercel.app" target="_blank" class="trust-badge" data-i18n="badge1">Народные рецепты</a>
-    <a href="#quiz" class="trust-badge" data-i18n="badge2">Бесплатно</a>
-    <a href="#quiz" class="trust-badge" data-i18n="badge3">Ответ за 30 секунд</a>
+    <span class="trust-badge" data-i18n="badge1">🌿 Народные рецепты</span>
+    <span class="trust-badge" data-i18n="badge2">Бесплатно</span>
+    <span class="trust-badge" data-i18n="badge3">Ответ за 30 секунд</span>
   </div>
 </section>
 
-<div class="herb-divider">🌿 ✦ 🌿 ✦ 🌿</div>
+<!-- ═══ ИСТОРИЯ БАБУШКИ АННЫ ═══ -->
+<section class="story-section">
+  <div class="story-inner">
+    <div class="story-photo-wrap">
+      <div class="story-photo"><img src="babushka.png" alt="Бабушка Анна"></div>
+    </div>
+    <div class="story-content">
+      <span class="story-label" data-i18n="storyLabel">О бабушке</span>
+      <h2 data-i18n="storyTitle">93 года народной мудрости</h2>
+      <p data-i18n="storyP1">Анна выросла в небольшом ауле в советском Туркменистане. Её мать и бабушка были местными знахарками — с детства они учили её: какая трава снимает жар, что облегчает боль в суставах, как восстановить силы после болезни.</p>
+      <p data-i18n="storyP2">Прошли десятилетия. Анна стала бабушкой сама. И решила, что эта мудрость не должна уйти вместе с ней — а должна дойти до каждой, кто в ней нуждается, где бы она ни находилась.</p>
+      <div class="story-quote">
+        <p data-i18n="storyQuote">«Природа даёт всё что нужно — надо только знать как попросить»</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ КАК ЭТО РАБОТАЕТ ═══ -->
+<section class="how-section">
+  <div class="container-wide">
+    <h2 class="section-title reveal" data-i18n="howTitle">Как это работает</h2>
+    <p class="section-sub reveal d1" data-i18n="howSub">Три простых шага — и рецепт у тебя</p>
+    <div class="how-steps">
+      <div class="how-step reveal d1">
+        <div class="how-step-num">1</div>
+        <div class="how-step-icon">💬</div>
+        <h3 data-i18n="how1Title">Расскажи что беспокоит</h3>
+        <p data-i18n="how1Text">Ответь на 4 вопроса — бабушка слушает без осуждения и без спешки</p>
+      </div>
+      <div class="how-step reveal d2">
+        <div class="how-step-num">2</div>
+        <div class="how-step-icon">🌿</div>
+        <h3 data-i18n="how2Title">Получи рецепт</h3>
+        <p data-i18n="how2Text">Через 30 секунд — персональный народный рецепт с травами и способом приготовления</p>
+      </div>
+      <div class="how-step reveal d3">
+        <div class="how-step-num">3</div>
+        <div class="how-step-icon">💛</div>
+        <h3 data-i18n="how3Title">Продолжай с бабушкой</h3>
+        <p data-i18n="how3Text">Напиши в Telegram — задавай вопросы и получай новые рецепты когда нужно</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ КВИЗ ═══ -->
 <section class="quiz-section" id="quiz">
@@ -738,10 +529,8 @@ footer {
       <h2 data-i18n="quizTitle">Бабушка тебя слушает</h2>
       <p data-i18n="quizSub">Ответь на 4 вопроса — получи личный народный рецепт</p>
     </div>
-
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
 
-    <!-- Шаг 1: Симптом -->
     <div class="quiz-step active" id="step-1">
       <p class="grandma-says" data-i18n="says1">«Расскажи мне, доченька, что тебя беспокоит?»</p>
       <p class="quiz-q" data-i18n="q1">Что беспокоит больше всего?</p>
@@ -755,7 +544,6 @@ footer {
       </div>
     </div>
 
-    <!-- Шаг 2: Длительность -->
     <div class="quiz-step" id="step-2">
       <p class="grandma-says" data-i18n="says2">«А давно ли это тебя беспокоит, золотая?»</p>
       <p class="quiz-q" data-i18n="q2">Как давно это беспокоит?</p>
@@ -767,7 +555,6 @@ footer {
       </div>
     </div>
 
-    <!-- Шаг 3: Возраст -->
     <div class="quiz-step" id="step-3">
       <p class="grandma-says" data-i18n="says3">«Скажи мне, сколько тебе лет — это важно для рецепта»</p>
       <p class="quiz-q" data-i18n="q3">Сколько тебе лет?</p>
@@ -779,7 +566,6 @@ footer {
       </div>
     </div>
 
-    <!-- Шаг 4: Что пробовали -->
     <div class="quiz-step" id="step-4">
       <p class="grandma-says" data-i18n="says4">«Хорошо, последний вопрос...»</p>
       <p class="quiz-q" data-i18n="q4">Что уже пробовала?</p>
@@ -791,64 +577,60 @@ footer {
       </div>
     </div>
 
-    <!-- Загрузка -->
     <div class="quiz-loading" id="quizLoading">
       <div class="loading-emoji">👵</div>
       <p class="loading-text" data-i18n="loading">Бабушка думает над твоим рецептом<span class="loading-dots"></span></p>
     </div>
 
-    <!-- Результат -->
     <div class="quiz-result" id="quizResult">
-      <div class="result-letter">
-        <div class="result-text" id="resultText"></div>
+      <div class="recipe-card">
+        <div class="recipe-card-header">
+          <span class="recipe-card-emoji">📜</span>
+          <div class="recipe-card-title" data-i18n="recipeTitle">Рецепт от Бабушки Анны</div>
+        </div>
+        <div class="recipe-text" id="resultText"></div>
       </div>
       <div class="result-actions">
+        <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-tg" data-i18n="btnBot">✈️ Написать бабушке в Telegram</a>
         <a href="https://babushka-anna.vercel.app" target="_blank" class="btn-secondary" data-i18n="btnHandbook">Открыть справочник рецептов</a>
-        <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-secondary" data-i18n="btnBot">Написать бабушке в Telegram</a>
       </div>
       <button class="btn-restart" onclick="restartQuiz()" data-i18n="btnRestart">↺ Задать другой вопрос</button>
     </div>
-
   </div>
 </section>
-
-<div class="herb-divider">🍃 ✦ 🌿 ✦ 🍃</div>
 
 <!-- ═══ ОТЗЫВЫ ═══ -->
 <section class="testimonials">
   <div class="container-wide">
     <h2 class="section-title reveal" data-i18n="reviewsTitle">Что говорят люди</h2>
-    <p class="section-sub reveal d1" data-i18n="reviewsSub">Реальные истории от тех, кому помогло</p>
+    <p class="section-sub reveal d1" data-i18n="reviewsSub">Истории тех, кому помогло</p>
     <div class="cards-grid">
       <div class="card reveal d1">
-        <p class="card-quote">Спина мучила три года. Врачи говорили — операция. Попробовала рецепт с чёрным тмином и чабрецом от Бабушки Анны. Через две недели боль ушла на 70%. Теперь всем рассказываю.</p>
-        <div class="card-author">
-          <div class="card-avatar">🌸</div>
+        <p class="card-quote">Спина мучила три года. Попробовала рецепт с чёрным тмином и чабрецом от Бабушки Анны. Через две недели боль ушла на 70%. Теперь всем рассказываю.</p>
+        <div style="display:flex;align-items:center;gap:12px;">
           <div>
             <div class="card-name">Людмила, 54 года</div>
-            <div class="card-meta">Москва</div>
+            <div class="card-meta">Гамбург, Германия</div>
             <div class="stars">★★★★★</div>
           </div>
         </div>
       </div>
       <div class="card reveal d2">
-        <p class="card-quote">Бессонница замучила после выхода на пенсию. Валерьянка не помогала. Бабушка посоветовала мелиссу с мёдом и пустырник — уже через неделю сплю как в молодости. Спасибо от души!</p>
-        <div class="card-author">
-          <div class="card-avatar">🌺</div>
+        <p class="card-quote">Бессонница замучила после выхода на пенсию. Бабушка посоветовала мелиссу с мёдом и пустырник — уже через неделю сплю как в молодости. Спасибо от души!</p>
+        <div style="display:flex;align-items:center;gap:12px;">
           <div>
             <div class="card-name">Тамара, 62 года</div>
-            <div class="card-meta">Киев</div>
+            <div class="card-meta">Тель-Авив, Израиль</div>
             <div class="stars">★★★★★</div>
           </div>
         </div>
       </div>
       <div class="card reveal d3">
-        <p class="card-quote">Давление скакало, таблетки пила горстями. Попробовала рецепт с боярышником и гранатом. Давление стабилизировалось. Теперь советую всем подругам — они тоже в восторге.</p>
-        <div class="card-author">
-          <div class="card-avatar">🌷</div>
+        <p class="card-quote">Давление скакало, таблетки пила горстями. Попробовала рецепт с боярышником и гранатом. Давление стабилизировалось. Советую всем подругам!</p>
+        <div style="display:flex;align-items:center;gap:12px;">
           <div>
             <div class="card-name">Надежда, 58 лет</div>
-            <div class="card-meta">Алматы</div>
+            <div class="card-meta">Вена, Австрия</div>
             <div class="stars">★★★★★</div>
           </div>
         </div>
@@ -857,48 +639,92 @@ footer {
   </div>
 </section>
 
-<div class="herb-divider">🌱 ✦ 🍃 ✦ 🌱</div>
-
-<!-- ═══ ДОВЕРИЕ ═══ -->
-<section class="trust-section">
+<!-- ═══ ЧТО ТЫ ПОЛУЧИШЬ ═══ -->
+<section class="benefits-section">
   <div class="container-wide">
-    <h2 class="section-title reveal" data-i18n="trustTitle">Почему люди доверяют бабушке Анне</h2>
-    <p class="section-sub reveal d1" data-i18n="trustSub">Народная мудрость, проверенная поколениями</p>
-    <div class="trust-grid">
-      <div class="trust-item reveal d1">
-        <div class="trust-icon">🌿</div>
-        <h3 data-i18n="t1h">Природные рецепты</h3>
-        <p data-i18n="t1p">Только травы и натуральные ингредиенты. Никакой химии.</p>
+    <h2 class="section-title reveal" data-i18n="benefitsTitle">Будь рядом с бабушкой</h2>
+    <p class="section-sub reveal d1" data-i18n="benefitsSub">Telegram-бот @babushka_anna_heal_bot — всегда под рукой</p>
+    <div class="benefits-grid">
+      <div class="benefit-item reveal d1">
+        <span class="benefit-icon">🌿</span>
+        <div class="benefit-content">
+          <h3 data-i18n="b1Title">Рецепт по запросу</h3>
+          <p data-i18n="b1Text">Задавай вопросы в любое время — бабушка отвечает быстро и без очереди</p>
+        </div>
       </div>
-      <div class="trust-item reveal d2">
-        <div class="trust-icon">💛</div>
-        <h3 data-i18n="t2h">Тёплый подход</h3>
-        <p data-i18n="t2p">Бабушка говорит с тобой как с родной — с заботой и без осуждения.</p>
+      <div class="benefit-item reveal d2">
+        <span class="benefit-icon">📅</span>
+        <div class="benefit-content">
+          <h3 data-i18n="b2Title">Сезонные рецепты</h3>
+          <p data-i18n="b2Text">Весной — детокс, зимой — иммунитет, летом — лёгкость. Рецепты в нужный момент</p>
+        </div>
       </div>
-      <div class="trust-item reveal d3">
-        <div class="trust-icon">🕐</div>
-        <h3 data-i18n="t3h">Ответ за 30 секунд</h3>
-        <p data-i18n="t3p">Персональный рецепт сразу — без очереди и без записи.</p>
+      <div class="benefit-item reveal d1">
+        <span class="benefit-icon">👥</span>
+        <div class="benefit-content">
+          <h3 data-i18n="b3Title">Сообщество</h3>
+          <p data-i18n="b3Text">170+ человек, которые делятся опытом, задают вопросы и поддерживают друг друга</p>
+        </div>
       </div>
-      <div class="trust-item">
-        <div class="trust-icon">🛡️</div>
-        <h3 data-i18n="t4h">Безопасно</h3>
-        <p data-i18n="t4p">Всегда напоминаем: при серьёзных симптомах — к врачу. Только народные советы.</p>
+      <div class="benefit-item reveal d2">
+        <span class="benefit-icon">💛</span>
+        <div class="benefit-content">
+          <h3 data-i18n="b4Title">Тепло и забота</h3>
+          <p data-i18n="b4Text">Бабушка говорит с тобой как с родной — без медицинского жаргона и без осуждения</p>
+        </div>
+      </div>
+    </div>
+    <div class="benefits-cta">
+      <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-primary" data-i18n="benefitsBtn">Написать бабушке в Telegram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title reveal" data-i18n="faqTitle">Вопросы и ответы</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="faqQ1">Это бесплатно?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <p data-i18n="faqA1">Да, квиз на этой странице и Telegram-бот @babushka_anna_heal_bot полностью бесплатны. Задавай вопросы и получай рецепты без ограничений.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="faqQ2">Бабушка заменяет врача?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <p data-i18n="faqA2">Нет. Бабушка Анна — народный целитель, а не врач. Её рецепты — народная мудрость, а не медицинские рекомендации. При серьёзных симптомах всегда обращайся к врачу.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="faqQ3">Откуда берутся рецепты?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">
+          <p data-i18n="faqA3">Рецепты основаны на традиционной народной медицине народов Средней Азии и Кавказа — мудрости, которую Анна передаёт из уст в уста. Каждый рецепт проверен поколениями.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ ФИНАЛЬНЫЙ CTA ═══ -->
-<section class="cta-section">
-  <div class="container">
-    <h2 data-i18n="ctaTitle">Хочешь большего?</h2>
-    <p data-i18n="ctaSub">Загляни в справочник рецептов или напиши бабушке лично в Telegram</p>
-    <div class="cta-btns">
-      <a href="https://babushka-anna.vercel.app" target="_blank" class="btn-primary" style="font-size:17px;padding:16px 32px;" data-i18n="ctaHandbook">Справочник рецептов</a>
-      <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-outline" style="padding:16px 32px;font-size:17px;" data-i18n="ctaBot">Написать в Telegram</a>
-    </div>
-  </div>
+<section class="cta-final">
+  <span class="cta-leaf">🌿</span>
+  <h2 data-i18n="ctaTitle">Бабушка ждёт тебя</h2>
+  <p data-i18n="ctaSub">Задай свой вопрос — получи народный рецепт прямо сейчас</p>
+  <a href="https://t.me/babushka_anna_heal_bot" target="_blank" class="btn-primary" data-i18n="ctaBtn">Написать бабушке в Telegram</a>
+  <p class="cta-group-note">
+    <span data-i18n="ctaGroupNote">Или вступи в </span><a href="https://t.me/+u39XPrezFspmM2Ey" target="_blank" data-i18n="ctaGroupLink">нашу группу</a>
+  </p>
 </section>
 
 <!-- ═══ ПОДВАЛ ═══ -->
@@ -924,9 +750,18 @@ footer {
 /* ══ ПЕРЕВОДЫ ══ */
 const i18n = {
   ru: {
-    heroTitle:'Бабушка Анна', heroSub:'Народный целитель · Советский Туркменистан · 93 года мудрости',
+    heroTitle:'Бабушка Анна', heroSub:'Народный целитель · Туркменистан · 93 года мудрости',
+    heroCounter:'🌿 1 000+ персональных рецептов выдано',
     heroTagline:'«Природа знает лучше любого доктора, доченька»', heroBtn:'Спросить бабушку',
-    badge1:'Народные рецепты', badge2:'Бесплатно', badge3:'Ответ за 30 секунд',
+    badge1:'🌿 Народные рецепты', badge2:'Бесплатно', badge3:'Ответ за 30 секунд',
+    storyLabel:'О бабушке', storyTitle:'93 года народной мудрости',
+    storyP1:'Анна выросла в небольшом ауле в советском Туркменистане. Её мать и бабушка были местными знахарками — с детства они учили её: какая трава снимает жар, что облегчает боль в суставах, как восстановить силы после болезни.',
+    storyP2:'Прошли десятилетия. Анна стала бабушкой сама. И решила, что эта мудрость не должна уйти вместе с ней — а должна дойти до каждой, кто в ней нуждается, где бы она ни находилась.',
+    storyQuote:'«Природа даёт всё что нужно — надо только знать как попросить»',
+    howTitle:'Как это работает', howSub:'Три простых шага — и рецепт у тебя',
+    how1Title:'Расскажи что беспокоит', how1Text:'Ответь на 4 вопроса — бабушка слушает без осуждения и без спешки',
+    how2Title:'Получи рецепт', how2Text:'Через 30 секунд — персональный народный рецепт с травами и способом приготовления',
+    how3Title:'Продолжай с бабушкой', how3Text:'Напиши в Telegram — задавай вопросы и получай новые рецепты когда нужно',
     quizTitle:'Бабушка тебя слушает', quizSub:'Ответь на 4 вопроса — получи личный народный рецепт',
     says1:'«Расскажи мне, доченька, что тебя беспокоит?»',
     says2:'«А давно ли это тебя беспокоит, золотая?»',
@@ -935,7 +770,8 @@ const i18n = {
     q1:'Что беспокоит больше всего?', q2:'Как давно это беспокоит?',
     q3:'Сколько тебе лет?', q4:'Что уже пробовала?',
     loading:'Бабушка думает над твоим рецептом',
-    btnHandbook:'Открыть справочник рецептов', btnBot:'Написать бабушке в Telegram',
+    recipeTitle:'Рецепт от Бабушки Анны',
+    btnBot:'✈️ Написать бабушке в Telegram', btnHandbook:'Открыть справочник рецептов',
     btnRestart:'↺ Задать другой вопрос',
     opt_back:'💪 Боль в спине или суставах', opt_sleep:'😴 Сон или нервы',
     opt_heart:'❤️ Давление или сердце', opt_stomach:'🌿 Желудок или пищеварение',
@@ -945,21 +781,35 @@ const i18n = {
     opt_u35:'🌱 До 35 лет', opt_35:'🌿 35–50 лет', opt_50:'🍃 50–65 лет', opt_65:'🌳 Старше 65 лет',
     opt_nothing:'🤷 Ещё ничего не пробовала', opt_pills:'💊 Аптечные таблетки',
     opt_folk:'🌿 Народные средства', opt_doctor:'🏥 Ходила к врачу',
-    reviewsTitle:'Что говорят люди', reviewsSub:'Реальные истории от тех, кому помогло',
-    trustTitle:'Почему люди доверяют бабушке Анне', trustSub:'Народная мудрость, проверенная поколениями',
-    t1h:'Природные рецепты', t1p:'Только травы и натуральные ингредиенты. Никакой химии.',
-    t2h:'Тёплый подход', t2p:'Бабушка говорит с тобой как с родной — с заботой и без осуждения.',
-    t3h:'Ответ за 30 секунд', t3p:'Персональный рецепт сразу — без очереди и без записи.',
-    t4h:'Безопасно', t4p:'Всегда напоминаем: при серьёзных симптомах — к врачу. Только народные советы.',
-    ctaTitle:'Хочешь большего?', ctaSub:'Загляни в справочник рецептов или напиши бабушке лично в Telegram',
-    ctaHandbook:'Справочник рецептов', ctaBot:'Написать в Telegram',
+    reviewsTitle:'Что говорят люди', reviewsSub:'Истории тех, кому помогло',
+    benefitsTitle:'Будь рядом с бабушкой', benefitsSub:'Telegram-бот @babushka_anna_heal_bot — всегда под рукой',
+    b1Title:'Рецепт по запросу', b1Text:'Задавай вопросы в любое время — бабушка отвечает быстро и без очереди',
+    b2Title:'Сезонные рецепты', b2Text:'Весной — детокс, зимой — иммунитет, летом — лёгкость. Рецепты в нужный момент',
+    b3Title:'Сообщество', b3Text:'170+ человек, которые делятся опытом, задают вопросы и поддерживают друг друга',
+    b4Title:'Тепло и забота', b4Text:'Бабушка говорит с тобой как с родной — без медицинского жаргона и без осуждения',
+    benefitsBtn:'Написать бабушке в Telegram',
+    faqTitle:'Вопросы и ответы',
+    faqQ1:'Это бесплатно?', faqA1:'Да, квиз на этой странице и Telegram-бот @babushka_anna_heal_bot полностью бесплатны. Задавай вопросы и получай рецепты без ограничений.',
+    faqQ2:'Бабушка заменяет врача?', faqA2:'Нет. Бабушка Анна — народный целитель, а не врач. Её рецепты — народная мудрость, а не медицинские рекомендации. При серьёзных симптомах всегда обращайся к врачу.',
+    faqQ3:'Откуда берутся рецепты?', faqA3:'Рецепты основаны на традиционной народной медицине народов Средней Азии и Кавказа — мудрости, которую Анна передаёт из уст в уста. Каждый рецепт проверен поколениями.',
+    ctaTitle:'Бабушка ждёт тебя', ctaSub:'Задай свой вопрос — получи народный рецепт прямо сейчас',
+    ctaBtn:'Написать бабушке в Telegram', ctaGroupNote:'Или вступи в ', ctaGroupLink:'нашу группу',
     footerHandbook:'Справочник рецептов', footerGroup:'Наша группа',
     disclaimer:'Все советы носят информационный характер и не являются медицинской рекомендацией. При серьёзных симптомах обратитесь к врачу.'
   },
   en: {
-    heroTitle:'Grandma Anna', heroSub:'Folk Healer · Soviet Turkmenistan · 93 Years of Wisdom',
+    heroTitle:'Grandma Anna', heroSub:'Folk Healer · Turkmenistan · 93 Years of Wisdom',
+    heroCounter:'🌿 1,000+ personal recipes given',
     heroTagline:'"Nature knows better than any doctor, my dear"', heroBtn:'Ask Grandma',
-    badge1:'Natural Remedies', badge2:'Free', badge3:'Answer in 30 seconds',
+    badge1:'🌿 Natural Remedies', badge2:'Free', badge3:'Answer in 30 seconds',
+    storyLabel:'About Grandma', storyTitle:'93 years of folk wisdom',
+    storyP1:'Anna grew up in a small village in Soviet Turkmenistan. Her mother and grandmother were local healers — from childhood they taught her which herbs reduce fever, what eases joint pain, how to restore strength after illness.',
+    storyP2:'Decades passed. Anna became a grandmother herself. And decided this wisdom should not leave with her — but reach everyone who needs it, wherever they are.',
+    storyQuote:'"Nature gives everything you need — you just need to know how to ask"',
+    howTitle:'How it works', howSub:'Three simple steps — and the recipe is yours',
+    how1Title:'Tell me what hurts', how1Text:'Answer 4 questions — Grandma listens without judgement or rush',
+    how2Title:'Get your recipe', how2Text:'In 30 seconds — a personal folk remedy with herbs and preparation method',
+    how3Title:'Stay with Grandma', how3Text:'Write on Telegram — ask questions and get new recipes whenever you need',
     quizTitle:'Grandma is listening', quizSub:'Answer 4 questions — get your personal folk remedy',
     says1:'"Tell me, dear, what is bothering you?"',
     says2:'"How long has this been troubling you, sweetheart?"',
@@ -968,31 +818,46 @@ const i18n = {
     q1:'What bothers you most?', q2:'How long has this been going on?',
     q3:'How old are you?', q4:'What have you already tried?',
     loading:'Grandma is thinking about your remedy',
-    btnHandbook:'Open Recipe Handbook', btnBot:'Message Grandma on Telegram',
+    recipeTitle:'Recipe from Grandma Anna',
+    btnBot:'✈️ Message Grandma on Telegram', btnHandbook:'Open Recipe Handbook',
     btnRestart:'↺ Ask another question',
     opt_back:'💪 Back or joint pain', opt_sleep:'😴 Sleep or nerves',
     opt_heart:'❤️ Blood pressure or heart', opt_stomach:'🌿 Stomach or digestion',
-    opt_tired:'⚡ Fatigue or low energy', opt_immune:'🛡️ Immunity or frequent colds',
+    opt_tired:'⚡ Fatigue or low energy', opt_immune:'🛡️ Immunity or colds',
     opt_days:'📅 A few days', opt_weeks:'🗓️ A few weeks',
-    opt_months:'📆 A few months', opt_year:'🕰️ A long time, over a year',
+    opt_months:'📆 A few months', opt_year:'🕰️ Over a year',
     opt_u35:'🌱 Under 35', opt_35:'🌿 35–50', opt_50:'🍃 50–65', opt_65:'🌳 Over 65',
-    opt_nothing:'🤷 Haven\'t tried anything yet', opt_pills:'💊 Pharmacy medicine',
+    opt_nothing:'🤷 Nothing yet', opt_pills:'💊 Pharmacy medicine',
     opt_folk:'🌿 Folk remedies', opt_doctor:'🏥 Visited a doctor',
-    reviewsTitle:'What people say', reviewsSub:'Real stories from those who found relief',
-    trustTitle:'Why people trust Grandma Anna', trustSub:'Folk wisdom proven across generations',
-    t1h:'Natural Recipes', t1p:'Only herbs and natural ingredients. No chemicals.',
-    t2h:'Warm Approach', t2p:'Grandma talks to you like family — with care, no judgement.',
-    t3h:'Answer in 30 Seconds', t3p:'Personal recipe right away — no waiting, no booking.',
-    t4h:'Safe', t4p:'We always remind: for serious symptoms — see a doctor.',
-    ctaTitle:'Want more?', ctaSub:'Browse the recipe handbook or message Grandma personally on Telegram',
-    ctaHandbook:'Recipe Handbook', ctaBot:'Message on Telegram',
+    reviewsTitle:'What people say', reviewsSub:'Stories from those who found relief',
+    benefitsTitle:'Stay close to Grandma', benefitsSub:'Telegram bot @babushka_anna_heal_bot — always at hand',
+    b1Title:'Recipe on demand', b1Text:'Ask questions anytime — Grandma answers quickly with no queue',
+    b2Title:'Seasonal recipes', b2Text:'Spring detox, winter immunity, summer lightness. Recipes at the right moment',
+    b3Title:'Community', b3Text:'170+ people sharing experience, asking questions and supporting each other',
+    b4Title:'Warmth and care', b4Text:'Grandma talks to you like family — no medical jargon, no judgement',
+    benefitsBtn:'Message Grandma on Telegram',
+    faqTitle:'Questions & Answers',
+    faqQ1:'Is it free?', faqA1:'Yes, the quiz on this page and the Telegram bot @babushka_anna_heal_bot are completely free. Ask questions and get recipes without limits.',
+    faqQ2:'Does Grandma replace a doctor?', faqA2:'No. Grandma Anna is a folk healer, not a doctor. Her recipes are folk wisdom, not medical advice. For serious symptoms, always see a doctor.',
+    faqQ3:'Where do the recipes come from?', faqA3:'Recipes are based on traditional folk medicine of Central Asia and the Caucasus — wisdom Anna passes on from generation to generation.',
+    ctaTitle:'Grandma is waiting for you', ctaSub:'Ask your question — get a folk recipe right now',
+    ctaBtn:'Message Grandma on Telegram', ctaGroupNote:'Or join ', ctaGroupLink:'our community',
     footerHandbook:'Recipe Handbook', footerGroup:'Our Community',
-    disclaimer:'All advice is for informational purposes and does not constitute medical advice. For serious symptoms, please consult a doctor.'
+    disclaimer:'All advice is for informational purposes only and does not constitute medical advice. For serious symptoms, please consult a doctor.'
   },
   de: {
-    heroTitle:'Oma Anna', heroSub:'Volksheilerin · Sowjetisches Turkmenistan · 93 Jahre Weisheit',
+    heroTitle:'Oma Anna', heroSub:'Volksheilerin · Turkmenistan · 93 Jahre Weisheit',
+    heroCounter:'🌿 Über 1.000 persönliche Rezepte vergeben',
     heroTagline:'"Die Natur weiß es besser als jeder Arzt, mein Kind"', heroBtn:'Oma fragen',
-    badge1:'Naturrezepte', badge2:'Kostenlos', badge3:'Antwort in 30 Sekunden',
+    badge1:'🌿 Naturrezepte', badge2:'Kostenlos', badge3:'Antwort in 30 Sekunden',
+    storyLabel:'Über Oma', storyTitle:'93 Jahre Volksweisheit',
+    storyP1:'Anna wuchs in einem kleinen Dorf im sowjetischen Turkmenistan auf. Ihre Mutter und Großmutter waren örtliche Heilerinnen — von Kindheit an lehrten sie sie, welche Kräuter Fieber lindern, was bei Gelenkschmerzen hilft, wie man nach Krankheit wieder zu Kräften kommt.',
+    storyP2:'Jahrzehnte vergingen. Anna wurde selbst zur Großmutter. Und beschloss, dass diese Weisheit nicht mit ihr verschwinden darf — sondern jeden erreichen sollte, der sie braucht, wo auch immer sie sich befindet.',
+    storyQuote:'"Die Natur gibt alles was man braucht — man muss nur wissen, wie man fragt"',
+    howTitle:'So funktioniert es', howSub:'Drei einfache Schritte — und das Rezept gehört dir',
+    how1Title:'Erzähl was dich besorgt', how1Text:'Beantworte 4 Fragen — Oma hört ohne Urteil und ohne Eile zu',
+    how2Title:'Erhalte dein Rezept', how2Text:'In 30 Sekunden — ein persönliches Volksrezept mit Kräutern und Zubereitung',
+    how3Title:'Bleib bei Oma', how3Text:'Schreib auf Telegram — stell Fragen und erhalte neue Rezepte wann immer du sie brauchst',
     quizTitle:'Oma hört dir zu', quizSub:'Beantworte 4 Fragen — erhalte dein persönliches Volksrezept',
     says1:'"Erzähl mir, mein Kind, was dich besorgt?"',
     says2:'"Wie lange macht dir das schon zu schaffen?"',
@@ -1001,24 +866,30 @@ const i18n = {
     q1:'Was bereitet dir die meisten Sorgen?', q2:'Wie lange geht das schon?',
     q3:'Wie alt bist du?', q4:'Was hast du schon versucht?',
     loading:'Oma denkt über dein Rezept nach',
-    btnHandbook:'Rezepthandbuch öffnen', btnBot:'Oma auf Telegram schreiben',
+    recipeTitle:'Rezept von Oma Anna',
+    btnBot:'✈️ Oma auf Telegram schreiben', btnHandbook:'Rezepthandbuch öffnen',
     btnRestart:'↺ Andere Frage stellen',
     opt_back:'💪 Rücken- oder Gelenkschmerzen', opt_sleep:'😴 Schlaf oder Nerven',
     opt_heart:'❤️ Blutdruck oder Herz', opt_stomach:'🌿 Magen oder Verdauung',
     opt_tired:'⚡ Müdigkeit oder Energiemangel', opt_immune:'🛡️ Immunsystem oder Erkältungen',
     opt_days:'📅 Einige Tage', opt_weeks:'🗓️ Einige Wochen',
-    opt_months:'📆 Einige Monate', opt_year:'🕰️ Schon lange, über ein Jahr',
+    opt_months:'📆 Einige Monate', opt_year:'🕰️ Über ein Jahr',
     opt_u35:'🌱 Unter 35', opt_35:'🌿 35–50', opt_50:'🍃 50–65', opt_65:'🌳 Über 65',
     opt_nothing:'🤷 Noch nichts versucht', opt_pills:'💊 Apothekenmittel',
     opt_folk:'🌿 Volksheilmittel', opt_doctor:'🏥 Arzt aufgesucht',
-    reviewsTitle:'Was die Menschen sagen', reviewsSub:'Echte Geschichten von denen, denen es geholfen hat',
-    trustTitle:'Warum Menschen Oma Anna vertrauen', trustSub:'Volksweisheit, die sich generationenweise bewährt hat',
-    t1h:'Naturrezepte', t1p:'Nur Kräuter und natürliche Zutaten. Keine Chemie.',
-    t2h:'Herzlicher Ansatz', t2p:'Oma spricht mit dir wie mit der Familie — fürsorglich, kein Urteil.',
-    t3h:'Antwort in 30 Sekunden', t3p:'Persönliches Rezept sofort — ohne Wartezeit.',
-    t4h:'Sicher', t4p:'Wir erinnern immer: bei ernsteren Symptomen zum Arzt.',
-    ctaTitle:'Möchtest du mehr?', ctaSub:'Schau ins Rezepthandbuch oder schreib Oma persönlich auf Telegram',
-    ctaHandbook:'Rezepthandbuch', ctaBot:'Auf Telegram schreiben',
+    reviewsTitle:'Was die Menschen sagen', reviewsSub:'Geschichten von denen, denen es geholfen hat',
+    benefitsTitle:'Bleib nah bei Oma', benefitsSub:'Telegram-Bot @babushka_anna_heal_bot — immer zur Hand',
+    b1Title:'Rezept auf Abruf', b1Text:'Stell jederzeit Fragen — Oma antwortet schnell und ohne Wartezeit',
+    b2Title:'Saisonale Rezepte', b2Text:'Frühjahrsdetox, Winterimmunität, Sommerleichtigkeit. Rezepte zur richtigen Zeit',
+    b3Title:'Gemeinschaft', b3Text:'170+ Menschen, die Erfahrungen teilen, Fragen stellen und sich gegenseitig unterstützen',
+    b4Title:'Wärme und Fürsorge', b4Text:'Oma spricht mit dir wie mit der Familie — kein Fachjargon, kein Urteil',
+    benefitsBtn:'Oma auf Telegram schreiben',
+    faqTitle:'Fragen & Antworten',
+    faqQ1:'Ist es kostenlos?', faqA1:'Ja, das Quiz und der Telegram-Bot @babushka_anna_heal_bot sind völlig kostenlos. Stelle Fragen und erhalte Rezepte ohne Einschränkungen.',
+    faqQ2:'Ersetzt Oma den Arzt?', faqA2:'Nein. Oma Anna ist eine Volksheilerin, keine Ärztin. Ihre Rezepte sind Volksweisheit, keine medizinischen Empfehlungen. Bei ernsteren Symptomen immer einen Arzt aufsuchen.',
+    faqQ3:'Woher kommen die Rezepte?', faqA3:'Die Rezepte basieren auf der traditionellen Volksmedizin Zentralasiens und des Kaukasus — Weisheit, die Anna von Generation zu Generation weitergibt.',
+    ctaTitle:'Oma wartet auf dich', ctaSub:'Stell deine Frage — erhalte jetzt ein Volksrezept',
+    ctaBtn:'Oma auf Telegram schreiben', ctaGroupNote:'Oder tritt ', ctaGroupLink:'unserer Gruppe bei',
     footerHandbook:'Rezepthandbuch', footerGroup:'Unsere Gruppe',
     disclaimer:'Alle Ratschläge dienen nur zu Informationszwecken und stellen keine medizinische Beratung dar. Bei ernsteren Symptomen bitte einen Arzt aufsuchen.'
   }
@@ -1031,7 +902,7 @@ function setLang(lang) {
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const v = i18n[lang][el.dataset.i18n];
-    if (v) el.textContent = v;
+    if (v !== undefined) el.textContent = v;
   });
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang);
@@ -1044,14 +915,9 @@ const progressMap = { 1:0, 2:25, 3:50, 4:75 };
 
 function answer(key, value, nextStep) {
   answers[key] = value;
-  if (nextStep === 'result') {
-    showLoading();
-    getAdvice();
-  } else {
-    showStep(nextStep);
-  }
+  if (nextStep === 'result') { showLoading(); getAdvice(); }
+  else showStep(nextStep);
 }
-
 function showStep(n) {
   document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
   document.getElementById('quizLoading').classList.remove('active');
@@ -1059,18 +925,15 @@ function showStep(n) {
   document.getElementById('step-' + n).classList.add('active');
   document.getElementById('progressFill').style.width = progressMap[n] + '%';
 }
-
 function showLoading() {
   document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
   document.getElementById('progressFill').style.width = '90%';
   document.getElementById('quizLoading').classList.add('active');
 }
-
 async function getAdvice() {
   try {
     const res = await fetch('/api/ask', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify(answers)
     });
     const data = await res.json();
@@ -1079,58 +942,57 @@ async function getAdvice() {
     showResult('Не удалось получить ответ. Проверь соединение и попробуй ещё раз.');
   }
 }
-
 function showResult(text) {
   document.getElementById('quizLoading').classList.remove('active');
   document.getElementById('progressFill').style.width = '100%';
   document.getElementById('resultText').textContent = text;
   document.getElementById('quizResult').classList.add('active');
-  document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('quiz').scrollIntoView({ behavior:'smooth' });
 }
-
 function restartQuiz() {
   Object.keys(answers).forEach(k => delete answers[k]);
   showStep(1);
   document.getElementById('progressFill').style.width = '0%';
 }
-
 function scrollToQuiz() {
-  document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('quiz').scrollIntoView({ behavior:'smooth' });
+}
+
+/* ══ FAQ ══ */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
 }
 
 /* ══ SCROLL REVEAL ══ */
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-}, { threshold: 0.12 });
+const revealObs = new IntersectionObserver(
+  entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+  { threshold: 0.12 }
+);
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-/* ══ ПАРАЛЛАКС ══ */
-const pxSections = [
-  { el: document.getElementById('quiz'),        factor: 0.3,  base: '50%' },
-  { el: document.querySelector('.cta-section'), factor: 0.35, base: '35%' },
-];
-
-let ticking = false;
-function runParallax() {
-  pxSections.forEach(({ el, factor, base }) => {
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    if (rect.bottom < -100 || rect.top > window.innerHeight + 100) return;
-    const offset = rect.top * factor * -1;
-    el.style.backgroundPositionY = `calc(${base} + ${offset}px)`;
-  });
-
-  /* Лёгкий параллакс контента hero — фото плывёт медленнее */
-  const wrap = document.querySelector('.hero-photo-wrap');
-  const scrollY = window.pageYOffset;
-  if (wrap && scrollY < window.innerHeight * 1.3) {
-    wrap.style.transform = `translateY(${scrollY * 0.08}px)`;
-  }
-  ticking = false;
-}
-
-/* Параллакс только на десктопе — на мобиле отключён */
+/* ══ ПАРАЛЛАКС (только десктоп) ══ */
 if (window.innerWidth > 768) {
+  const pxSections = [
+    { el: document.getElementById('quiz'),       factor: 0.3,  base: '50%' },
+    { el: document.querySelector('.cta-final'),  factor: 0.35, base: '40%' },
+  ];
+  let ticking = false;
+  function runParallax() {
+    pxSections.forEach(({ el, factor, base }) => {
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom < -100 || rect.top > window.innerHeight + 100) return;
+      el.style.backgroundPositionY = `calc(${base} + ${rect.top * factor * -1}px)`;
+    });
+    const wrap = document.querySelector('.hero-photo-wrap');
+    const scrollY = window.pageYOffset;
+    if (wrap && scrollY < window.innerHeight * 1.3)
+      wrap.style.transform = `translateY(${scrollY * 0.08}px)`;
+    ticking = false;
+  }
   window.addEventListener('scroll', () => {
     if (!ticking) { requestAnimationFrame(runParallax); ticking = true; }
   }, { passive: true });
