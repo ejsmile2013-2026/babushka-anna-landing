@@ -31,6 +31,8 @@ module.exports = async function handler(req, res) {
     });
   } catch (err) {
     console.error('Sheets error:', err.message);
+    console.error('Sheet ID used:', process.env.GOOGLE_SHEETS_ID);
+    console.error('Has credentials:', !!process.env.GOOGLE_SERVICE_ACCOUNT);
   }
 
   // Notify admin via Telegram
