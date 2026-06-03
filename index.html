@@ -807,7 +807,9 @@ const i18n = {
     q3:'Сколько тебе лет?', q4:'Что уже пробовала?',
     loading:'Бабушка думает над твоим рецептом',
     leadHint:'Пока бабушка думает — оставь свой Telegram и она напишет тебе сама',
-    leadBtn:'Отправить', leadSkip:'Пропустить →', leadThanks:'✓ Бабушка тебя запомнила 🌿',
+    leadGate:'✅ Рецепт готов! Куда прислать?',
+    leadBtn:'Прислать рецепт', leadSkip:'Пропустить →', leadShowHere:'Показать прямо здесь →',
+    leadThanks:'✓ Бабушка тебя запомнила 🌿 Рецепт сейчас откроется',
     recipeTitle:'Рецепт от Бабушки Анны',
     btnBot:'✈️ Написать бабушке в Telegram', btnHandbook:'Открыть справочник рецептов',
     btnRestart:'↺ Задать другой вопрос',
@@ -857,7 +859,9 @@ const i18n = {
     q3:'How old are you?', q4:'What have you already tried?',
     loading:'Grandma is thinking about your remedy',
     leadHint:'While Grandma thinks — leave your email and she will send you the recipe',
-    leadBtn:'Send', leadSkip:'Skip →', leadThanks:'✓ Grandma will remember you 🌿',
+    leadGate:'✅ Recipe is ready! Where should I send it?',
+    leadBtn:'Send me the recipe', leadSkip:'Skip →', leadShowHere:'Show here →',
+    leadThanks:'✓ Got it! 🌿 Your recipe is opening now',
     recipeTitle:'Recipe from Grandma Anna',
     btnBot:'✈️ Message Grandma on Telegram', btnHandbook:'Open Recipe Handbook',
     btnRestart:'↺ Ask another question',
@@ -906,8 +910,10 @@ const i18n = {
     q1:'Was bereitet dir die meisten Sorgen?', q2:'Wie lange geht das schon?',
     q3:'Wie alt bist du?', q4:'Was hast du schon versucht?',
     loading:'Oma denkt über dein Rezept nach',
-    leadHint:'Während Oma nachdenkt — hinterlasse deine E-Mail und sie schreibt dir',
-    leadBtn:'Senden', leadSkip:'Überspringen →', leadThanks:'✓ Oma wird dich nicht vergessen 🌿',
+    leadHint:'Während Oma nachdenkt — hinterlasse deine E-Mail und sie schickt dir das Rezept',
+    leadGate:'✅ Rezept ist fertig! Wohin soll ich es schicken?',
+    leadBtn:'Rezept schicken', leadSkip:'Überspringen →', leadShowHere:'Hier anzeigen →',
+    leadThanks:'✓ Danke! 🌿 Dein Rezept öffnet sich gleich',
     recipeTitle:'Rezept von Oma Anna',
     btnBot:'✈️ Oma auf Telegram schreiben', btnHandbook:'Rezepthandbuch öffnen',
     btnRestart:'↺ Andere Frage stellen',
@@ -976,34 +982,50 @@ function showLoading() {
 
 /* ══ ФОРМА КОНТАКТА ══ */
 let leadSubmitted = false;
+let pendingRecipe = null;
+
 function setupLeadForm() {
   const isTg = currentLang === 'ru';
-  const tgEl    = document.getElementById('leadTgInput');
-  const emailEl = document.getElementById('leadEmailInput');
-  tgEl.style.display    = isTg ? 'block' : 'none';
-  emailEl.style.display = isTg ? 'none'  : 'block';
-  tgEl.value = ''; emailEl.value = '';
+  document.getElementById('leadTgInput').style.display    = isTg ? 'block' : 'none';
+  document.getElementById('leadEmailInput').style.display = isTg ? 'none'  : 'block';
+  document.getElementById('leadTgInput').value = '';
+  document.getElementById('leadEmailInput').value = '';
   document.getElementById('leadForm').style.display   = 'block';
   document.getElementById('leadThanks').style.display = 'none';
   leadSubmitted = false;
+  pendingRecipe = null;
 }
+
+function revealRecipeGate() {
+  const lang = currentLang;
+  const hint = document.querySelector('#leadForm .lead-hint');
+  if (hint) { hint.textContent = i18n[lang].leadGate; hint.style.color = '#2d6235'; }
+  const skip = document.querySelector('#leadForm .lead-skip');
+  if (skip) skip.textContent = i18n[lang].leadShowHere;
+  document.getElementById('leadForm').style.boxShadow = '0 0 0 2px #c9a227';
+}
+
 async function submitLead() {
   const isTg    = currentLang === 'ru';
   const contact = isTg
     ? document.getElementById('leadTgInput').value.trim()
     : document.getElementById('leadEmailInput').value.trim();
-  if (!contact) return;
+  if (!contact) { if (pendingRecipe) skipLead(); return; }
   leadSubmitted = true;
   document.getElementById('leadForm').style.display   = 'none';
   document.getElementById('leadThanks').style.display = 'block';
   fetch('/api/save-contact', {
     method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({ contact, lang: currentLang, symptom: answers.symptom || '' })
+    body: JSON.stringify({ contact, lang: currentLang, symptom: answers.symptom || '', recipe: pendingRecipe || '' })
   }).catch(() => {});
+  if (pendingRecipe) setTimeout(() => showResult(pendingRecipe), 1400);
 }
+
 function skipLead() {
   document.getElementById('leadForm').style.display = 'none';
+  if (pendingRecipe) showResult(pendingRecipe);
 }
+
 async function getAdvice() {
   try {
     const res = await fetch('/api/ask', {
@@ -1011,10 +1033,12 @@ async function getAdvice() {
       body: JSON.stringify(answers)
     });
     const data = await res.json();
-    showResult(data.text || 'Что-то пошло не так, попробуй ещё раз, доченька.');
+    pendingRecipe = data.text || 'Что-то пошло не так, попробуй ещё раз, доченька.';
   } catch {
-    showResult('Не удалось получить ответ. Проверь соединение и попробуй ещё раз.');
+    pendingRecipe = 'Не удалось получить ответ. Проверь соединение и попробуй ещё раз.';
   }
+  if (leadSubmitted) { showResult(pendingRecipe); }
+  else               { revealRecipeGate(); }
 }
 function showResult(text) {
   document.getElementById('quizLoading').classList.remove('active');
